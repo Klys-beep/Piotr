@@ -13,28 +13,28 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, rgba(54, 84, 218, 0.3) 0%, rgba(41, 64, 168, 0.3) 100%), url('background.jpg');
+            color: #1a1a1a;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Background with professional overlay */
+        .hero-background {
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(248, 250, 252, 0.8) 100%), url('background.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            min-height: 100vh;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
+        /* Modern header */
         header {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             position: fixed;
             width: 100%;
             top: 0;
@@ -42,106 +42,74 @@
             transition: all 0.3s ease;
         }
 
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: linear-gradient(to bottom,
-                rgba(255, 255, 255, 0.1) 0%,
-                rgba(255, 255, 255, 0.05) 50%,
-                transparent 100%);
-            pointer-events: none;
-        }
-
         header.scrolled {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        header.scrolled::after {
-            background: linear-gradient(to bottom,
-                rgba(255, 255, 255, 0.15) 0%,
-                rgba(255, 255, 255, 0.08) 50%,
-                transparent 100%);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .logo {
+        .nav-left {
             display: flex;
             align-items: center;
-            gap: 20px;
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: white;
+            gap: 2rem;
+        }
+
+        .phone-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            background: rgba(59, 130, 246, 0.05);
+            border-radius: 25px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .phone-header:hover {
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .phone-header i {
+            font-size: 0.9rem;
+        }
+
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #1a1a1a;
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
-        .logo-img {
-            height: 60px;
+        .logo-nav-img {
+            height: 40px;
             width: auto;
-            filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.3));
             transition: all 0.3s ease;
         }
 
-        .logo:hover .logo-img {
+        .logo-nav:hover .logo-nav-img {
             transform: scale(1.05);
-            filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.4));
         }
 
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
-
-        .logo-main {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
-        }
-
-        .logo-sub {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.95);
-            font-weight: 400;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-            margin-top: 2px;
-        }
-
-        header.scrolled .logo-main {
-            background: linear-gradient(135deg, #2940a8 0%, #3654da 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0.5px 0.5px 1px rgba(0, 0, 0, 0.1));
-        }
-
-        header.scrolled .logo-sub {
-            color: #666;
-            text-shadow: none;
-        }
-
-        header.scrolled .logo-img {
-            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.15));
+        .logo-nav-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
         }
 
         .nav-links {
@@ -151,198 +119,285 @@
         }
 
         .nav-links a {
+            color: #4a5568;
             text-decoration: none;
-            color: white;
-            font-weight: 600;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
             transition: all 0.3s ease;
             position: relative;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            background: rgba(0, 0, 0, 0.3);
-            padding: 8px 16px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .nav-links a:hover {
-            color: white;
-            background: rgba(0, 0, 0, 0.5);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            color: #2d3748;
+            background: rgba(59, 130, 246, 0.05);
         }
 
-        header.scrolled .nav-links a {
-            color: #2940a8;
-            background: rgba(255, 255, 255, 0.8);
-            text-shadow: none;
-            border: 1px solid rgba(41, 64, 168, 0.2);
-        }
-
-        header.scrolled .nav-links a:hover {
-            color: #1a2b5c;
-            background: rgba(255, 255, 255, 0.95);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: rgba(255, 255, 255, 0.8);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
+        /* Hero section with centered logo */
         .hero {
-            margin-top: 100px;
-            padding: 6rem 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            color: white;
             position: relative;
+            padding: 0 2rem;
+        }
+
+        .hero-logo {
+            margin-bottom: 2rem;
+            animation: fadeInScale 1.2s ease-out;
+        }
+
+        .hero-logo img {
+            height: 120px;
+            width: auto;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+            transition: all 0.4s ease;
+        }
+
+        .hero-logo:hover img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.15));
+        }
+
+        .hero-content {
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 1s ease;
+            background: linear-gradient(135deg, #1a1a1a 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
 
         .hero .subtitle {
             font-size: 1.3rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
+            color: #4a5568;
+            font-weight: 400;
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.4s both;
+            animation: fadeInUp 1s ease-out 0.9s both;
         }
 
         .btn {
-            padding: 12px 30px;
+            padding: 14px 32px;
             border: none;
-            border-radius: 50px;
+            border-radius: 12px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
-            background: white;
-            color: #667eea;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.25);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.35);
         }
 
         .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
+            background: white;
+            color: #3b82f6;
+            border: 2px solid #3b82f6;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
         }
 
         .btn-secondary:hover {
-            background: white;
-            color: #667eea;
-            transform: translateY(-2px);
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.25);
         }
 
-        /* Main Content */
+        /* Main content */
         main {
-            background: white;
-            border-radius: 20px 20px 0 0;
-            margin-top: 2rem;
-            overflow: hidden;
-            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            position: relative;
         }
 
         .section {
-            padding: 4rem 0;
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             text-align: center;
-            margin-bottom: 3rem;
-            color: #2d3748;
+            margin-bottom: 4rem;
+            color: #1a1a1a;
+            font-weight: 700;
             position: relative;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            width: 60px;
+            width: 80px;
             height: 4px;
-            background: linear-gradient(45deg, #3654da, #2940a8);
-            bottom: -10px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 2px;
         }
 
-        /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        /* Interactive services timeline */
+        .services-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .service-card {
+        .services-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .service-item {
+            position: relative;
+            margin: 3rem 0;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            animation: slideInTimeline 0.8s ease-out forwards;
+        }
+
+        .service-item:nth-child(odd) {
+            flex-direction: row;
+            text-align: right;
+        }
+
+        .service-item:nth-child(even) {
+            flex-direction: row-reverse;
+            text-align: left;
+        }
+
+        .service-content {
+            flex: 1;
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            margin: 0 3rem;
+            transition: all 0.4s ease;
+            position: relative;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        .service-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
         }
 
-        .service-icon {
-            font-size: 3rem;
-            color: #3654da;
+        .service-item:nth-child(odd) .service-content::before {
+            right: -41px;
+        }
+
+        .service-item:nth-child(even) .service-content::before {
+            left: -41px;
+        }
+
+        .service-content:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .service-icon-timeline {
+            font-size: 2.5rem;
+            color: #3b82f6;
             margin-bottom: 1rem;
+            display: block;
         }
 
-        .service-card h3 {
+        .service-content h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #2d3748;
+            color: #1a1a1a;
+            font-weight: 600;
         }
 
-        .service-card p {
+        .service-content p {
             color: #4a5568;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
-        /* About Section */
+        /* About section */
         .about {
-            background: linear-gradient(135deg, rgba(247, 250, 252, 0.9) 0%, rgba(237, 242, 247, 0.9) 100%), url('sad.jpg');
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.85) 0%, rgba(226, 232, 240, 0.9) 100%), url('sad.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            position: relative;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+        }
+
+        .about .section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
         }
 
         .about-content {
@@ -359,13 +414,15 @@
         }
 
         .about-text h3 {
-            color: #2d3748;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 600;
         }
 
         .about-image {
             text-align: center;
+            position: relative;
         }
 
         .profile-image {
@@ -373,52 +430,62 @@
             height: 300px;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 20px 40px rgba(54, 84, 218, 0.3);
             border: 4px solid white;
-            transition: transform 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
         }
 
         .profile-image:hover {
             transform: scale(1.05);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
         }
 
-        /* Contact Section */
+        /* Contact section */
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
         .contact-item {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.4s ease;
         }
 
         .contact-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+            border-color: rgba(59, 130, 246, 0.3);
         }
 
         .contact-icon {
             font-size: 2.5rem;
-            color: #3654da;
+            color: #3b82f6;
             margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1);
         }
 
         .contact-item h3 {
-            color: #2d3748;
+            color: #1a1a1a;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .contact-item p {
             color: #4a5568;
         }
 
-        /* Contact Form */
+        /* Contact form styling */
         .contact-form-section {
             margin-top: 4rem;
             max-width: 800px;
@@ -426,74 +493,12 @@
             margin-right: auto;
         }
 
-        /* Map Section */
-        .map-section {
-            margin-top: 4rem;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .map-container {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e2e8f0;
-            overflow: hidden;
-        }
-
-        .map-container iframe {
-            transition: all 0.3s ease;
-            margin-bottom: 1rem;
-        }
-
-        .map-container:hover iframe {
-            transform: scale(1.02);
-        }
-
-        .map-info {
-            text-align: center;
-            padding-top: 1rem;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .map-info p {
-            margin: 0.5rem 0;
-            color: #4a5568;
-        }
-
-        .map-info strong {
-            color: #2d3748;
-        }
-
-        .map-link {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 10px 20px;
-            background: #3654da;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .map-link:hover {
-            background: #2940a8;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(54, 84, 218, 0.3);
-        }
-
-        .map-link i {
-            margin-right: 0.5rem;
-        }
-
         .form-title {
             font-size: 2rem;
             text-align: center;
-            color: #2d3748;
+            color: #1a1a1a;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .form-subtitle {
@@ -507,8 +512,8 @@
             background: white;
             padding: 3rem;
             border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e2e8f0;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.1);
         }
 
         .form-row {
@@ -525,28 +530,34 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #2d3748;
-            font-weight: 600;
+            color: #1a1a1a;
+            font-weight: 500;
             font-size: 0.95rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
+            padding: 14px 16px;
+            background: #f8fafc;
             border: 2px solid #e2e8f0;
-            border-radius: 10px;
+            border-radius: 12px;
+            color: #1a1a1a;
             font-size: 1rem;
             transition: all 0.3s ease;
-            background: #f7fafc;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #9ca3af;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #3654da;
+            border-color: #3b82f6;
             background: white;
-            box-shadow: 0 0 0 3px rgba(54, 84, 218, 0.1);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
         }
 
         .form-group textarea {
@@ -558,6 +569,7 @@
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
+            margin-bottom: 2rem;
         }
 
         .checkbox-label {
@@ -567,48 +579,87 @@
             cursor: pointer;
             line-height: 1.5;
             font-size: 0.95rem;
-        }
-
-        .checkbox-label input[type="checkbox"] {
-            width: auto;
-            margin: 0;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 15px;
-            font-size: 1.1rem;
-            margin-top: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(54, 84, 218, 0.3);
-        }
-
-        .success-message {
-            background: #48bb78;
-            color: white;
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 1rem;
-            display: none;
+            color: #4a5568;
         }
 
         .rodo-link {
-            color: #3654da;
+            color: #3b82f6;
             text-decoration: underline;
-            cursor: pointer;
             transition: color 0.3s ease;
         }
 
         .rodo-link:hover {
-            color: #2940a8;
+            color: #1d4ed8;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        /* Map section */
+        .map-section {
+            margin-top: 4rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .map-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .map-info {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 1.5rem;
+        }
+
+        .map-info p {
+            margin: 0.5rem 0;
+            color: #4a5568;
+        }
+
+        .map-info strong {
+            color: #1a1a1a;
+        }
+
+        .map-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .map-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #9ca3af;
+            text-align: center;
+            padding: 2rem 0;
         }
 
         /* RODO Modal */
@@ -625,7 +676,7 @@
         }
 
         .modal-content {
-            background-color: white;
+            background: white;
             margin: 5% auto;
             padding: 2rem;
             border-radius: 20px;
@@ -633,19 +684,7 @@
             max-width: 600px;
             max-height: 80vh;
             overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: modalSlideIn 0.3s ease;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
         }
 
         .modal-header {
@@ -659,12 +698,12 @@
 
         .modal-title {
             font-size: 1.5rem;
-            color: #2d3748;
+            color: #1a1a1a;
             margin: 0;
         }
 
         .close {
-            color: #718096;
+            color: #9ca3af;
             font-size: 2rem;
             font-weight: bold;
             cursor: pointer;
@@ -674,7 +713,7 @@
         }
 
         .close:hover {
-            color: #2d3748;
+            color: #3b82f6;
         }
 
         .modal-body {
@@ -683,27 +722,23 @@
         }
 
         .modal-body h4 {
-            color: #2d3748;
+            color: #1a1a1a;
             margin-top: 1.5rem;
             margin-bottom: 0.5rem;
         }
 
-        .modal-body ul {
-            margin: 0.5rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .modal-body li {
-            margin-bottom: 0.3rem;
-        }
-        footer {
-            background: #2d3748;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
         /* Animations */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -715,137 +750,10 @@
             }
         }
 
-        @keyframes slideInLeft {
+        @keyframes slideInTimeline {
             from {
                 opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(54, 84, 218, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(54, 84, 218, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(54, 84, 218, 0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes rotateIcon {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Apply animations to elements */
-        .service-card {
-            animation: fadeInUp 1.2s ease forwards;
-            opacity: 0;
-        }
-
-        .service-card:nth-child(1) { animation-delay: 0.2s; }
-        .service-card:nth-child(2) { animation-delay: 0.3s; }
-        .service-card:nth-child(3) { animation-delay: 0.4s; }
-        .service-card:nth-child(4) { animation-delay: 0.5s; }
-        .service-card:nth-child(5) { animation-delay: 0.6s; }
-        .service-card:nth-child(6) { animation-delay: 0.7s; }
-
-        .service-icon {
-            transition: all 0.4s ease;
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.05);
-        }
-
-        .contact-item {
-            animation: scaleIn 0.6s ease forwards;
-            opacity: 0;
-        }
-
-        .contact-item:nth-child(1) { animation-delay: 0.1s; }
-        .contact-item:nth-child(2) { animation-delay: 0.2s; }
-        .contact-item:nth-child(3) { animation-delay: 0.3s; }
-        .contact-item:nth-child(4) { animation-delay: 0.4s; }
-
-        .profile-image {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .logo-img {
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover .logo-img {
-            transform: scale(1.05);
-            filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.4));
-        }
-
-        .contact-icon {
-            animation: pulse 2s infinite;
-        }
-
-        .about-text {
-            animation: slideInLeft 0.8s ease forwards;
-            opacity: 0;
-        }
-
-        .about-image {
-            animation: slideInRight 0.8s ease forwards;
-            opacity: 0;
-            animation-delay: 0.2s;
-        }
-
-        /* Text elegant fade-in animation */
-        .hero h1 {
-            /* No animation - static display */
-        }
-
-        @keyframes elegantFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -853,71 +761,45 @@
             }
         }
 
-        /* Parallax scroll effect for hero */
-        .hero {
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Smooth entrance for form elements */
-        .contact-form {
-            animation: fadeInUp 0.8s ease forwards;
+        /* Scroll animations */
+        .fade-in {
             opacity: 0;
-            animation-delay: 0.3s;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
 
-        .form-group {
-            transition: all 0.3s ease;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .form-group:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Loading animation for buttons */
-        @keyframes buttonLoad {
-            0% {
-                background-position: -200px 0;
-            }
-            100% {
-                background-position: 200px 0;
-            }
-        }
-
-        .btn {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        /* Mobile Responsiveness */
+        /* Mobile responsiveness */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero-logo img {
+                height: 80px;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            .timeline-line {
+                left: 30px;
+            }
+
+            .service-item {
+                flex-direction: row !important;
+                text-align: left !important;
+            }
+
+            .service-content {
+                margin-left: 4rem;
+                margin-right: 1rem;
+            }
+
+            .service-content::before {
+                left: -41px !important;
+                right: auto !important;
             }
 
             .about-content {
@@ -925,120 +807,135 @@
                 text-align: center;
             }
 
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
             .profile-image {
                 width: 200px;
                 height: 200px;
             }
 
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .contact-form {
-                padding: 2rem 1.5rem;
-            }
-
-            .map-container {
-                padding: 1rem;
-            }
-
-            .modal-content {
-                margin: 10% auto;
-                padding: 1.5rem;
-                width: 95%;
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <a href="#" class="logo">
-                <img src="logo.png" alt="PG Logo" class="logo-img">
-                <div class="logo-text">
-                    <span class="logo-main">Piotr Głogowski</span>
+    <div class="hero-background">
+        <header>
+            <nav>
+                <div class="nav-left">
+                    <div class="phone-header">
+                        <i class="fas fa-phone"></i>
+                        <span>+48 XXX XXX XXX</span>
+                    </div>
+                    <a href="#" class="logo-nav">
+                    </a>
                 </div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#services">Usługi</a></li>
-                <li><a href="#about">O mnie</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
+                <ul class="nav-links">
+                    <li><a href="#services">Usługi</a></li>
+                    <li><a href="#about">O mnie</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Piotr Głogowski</h1>
-            <p class="subtitle">Radca Prawny | Profesjonalne doradztwo prawne</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Umów konsultację</a>
-                <a href="#services" class="btn btn-secondary">Poznaj usługi</a>
+        <section id="home" class="hero">
+            <div class="hero-logo">
+                <img src="logo.png" alt="Piotr Głogowski - Radca Prawny">
             </div>
-        </div>
-    </section>
+            <div class="hero-content">
+                <h1>Piotr Głogowski</h1>
+                <p class="subtitle">Radca Prawny | Profesjonalne doradztwo prawne</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-calendar-alt"></i>
+                        Umów konsultację
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <i class="fas fa-arrow-down"></i>
+                        Poznaj usługi
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <main>
         <section id="services" class="section">
-            <div class="container">
-                <h2 class="section-title">Zakres działań prawnych</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-building"></i>
+            <h2 class="section-title fade-in">Zakres działań prawnych</h2>
+            <div class="services-container">
+                <div class="services-timeline">
+                    <div class="timeline-line"></div>
+
+                    <div class="service-item" style="animation-delay: 0.2s;">
+                        <div class="service-content">
+                            <i class="fas fa-building service-icon-timeline"></i>
+                            <h3>Prawo korporacyjne</h3>
+                            <p>Kompleksowa obsługa prawna przedsiębiorstw, strukturyzacja transakcji biznesowych, fuzje i przejęcia, zarządzanie compliance oraz strategiczne doradztwo korporacyjne.</p>
                         </div>
-                        <h3>Prawo korporacyjne</h3>
-                        <p>Kompleksowa obsługa prawna przedsiębiorstw, strukturyzacja transakcji biznesowych, fuzje i przejęcia, zarządzanie compliance oraz strategiczne doradztwo korporacyjne.</p>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-gavel"></i>
+
+                    <div class="service-item" style="animation-delay: 0.4s;">
+                        <div class="service-content">
+                            <i class="fas fa-gavel service-icon-timeline"></i>
+                            <h3>Spory</h3>
+                            <p>Reprezentacja w postępowaniach sądowych i arbitrażowych, mediacje, negocjacje ugodowe, dochodzenie roszczeń oraz kompleksowa obrona interesów klientów w sporach prawnych.</p>
                         </div>
-                        <h3>Spory</h3>
-                        <p>Reprezentacja w postępowaniach sądowych i arbitrażowych, mediacje, negocjacje ugodowe, dochodzenie roszczeń oraz kompleksowa obrona interesów klientów w sporach prawnych.</p>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-file-contract"></i>
+
+                    <div class="service-item" style="animation-delay: 0.6s;">
+                        <div class="service-content">
+                            <i class="fas fa-file-contract service-icon-timeline"></i>
+                            <h3>Prawo kontraktowe</h3>
+                            <p>Profesjonalne sporządzanie i przeglądanie i negocjowanie umów w celu ochrony interesów Twojej firmy.</p>
                         </div>
-                        <h3>Prawo kontraktowe</h3>
-                        <p>Profesjonalne sporządzanie i przeglądanie i negocjowanie umów w celu ochrony interesów Twojej firmy.</p>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-users"></i>
+
+                    <div class="service-item" style="animation-delay: 0.8s;">
+                        <div class="service-content">
+                            <i class="fas fa-users service-icon-timeline"></i>
+                            <h3>Prawo pracy</h3>
+                            <p>Poruszaj się po skomplikowanych kwestiach związanych z zatrudnieniem korzystając z pewności siebie i wiedzy prawniczej.</p>
                         </div>
-                        <h3>Prawo pracy</h3>
-                        <p>Poruszaj się po skomplikowanych kwestiach związanych z zatrudnieniem korzystając z pewności siebie i wiedzy prawniczej.</p>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-lightbulb"></i>
+
+                    <div class="service-item" style="animation-delay: 1.0s;">
+                        <div class="service-content">
+                            <i class="fas fa-lightbulb service-icon-timeline"></i>
+                            <h3>Własność intelektualna</h3>
+                            <p>Chroń swoje innowacje, znaki towarowe, dzieła twórcze dzięki kompleksowym strategiom ochrony własności intelektualnej.</p>
                         </div>
-                        <h3>Własność intelektualna</h3>
-                        <p>Chroń swoje innowacje, znaki towarowe, dzieła twórcze dzięki kompleksowym strategiom ochrony własności intelektualnej.</p>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-home"></i>
+
+                    <div class="service-item" style="animation-delay: 1.2s;">
+                        <div class="service-content">
+                            <i class="fas fa-home service-icon-timeline"></i>
+                            <h3>Prawo nieruchomości</h3>
+                            <p>Obsługa transakcji kupna-sprzedaży, umowy najmu i dzierżawy, sprawy własnościowe, projekty deweloperskie oraz rozwiązywanie sporów dotyczących nieruchomości.</p>
                         </div>
-                        <h3>Prawo nieruchomości</h3>
-                        <p>Obsługa transakcji kupna-sprzedaży, umowy najmu i dzierżawy, sprawy własnościowe, projekty deweloperskie oraz rozwiązywanie sporów dotyczących nieruchomości.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section about">
-            <div class="container">
-                <h2 class="section-title">O mnie</h2>
+        <section id="about" class="about">
+            <div class="section">
+                <h2 class="section-title fade-in">O mnie</h2>
                 <div class="about-content">
-                    <div class="about-text">
+                    <div class="about-text fade-in">
                         <h3>Nowy gracz na rynku prawniczym</h3>
                         <p>Jako nowy uczestnik rynku usług prawnych, wnoszę świeże spojrzenie na tradycyjne podejście do prawa. Łączę nowoczesne metody pracy z solidnymi podstawami prawniczymi, oferując klientom elastyczne i skuteczne rozwiązania.</p>
+                        <p>Moim celem jest zapewnienie kompleksowej obsługi prawnej, która nie tylko rozwiązuje bieżące problemy, ale także pomaga w strategicznym planowaniu i unikaniu potencjalnych komplikacji prawnych w przyszłości.</p>
                     </div>
-                    <div class="about-image">
+                    <div class="about-image fade-in">
                         <img src="piotr.png" alt="Piotr Głogowski - Radca Prawny" class="profile-image">
                     </div>
                 </div>
@@ -1046,111 +943,107 @@
         </section>
 
         <section id="contact" class="section">
-            <div class="container">
-                <h2 class="section-title">Kontakt</h2>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <h3>Telefon</h3>
-                        <p>+48 XXX XXX XXX</p>
+            <h2 class="section-title fade-in">Kontakt</h2>
+            <div class="contact-info">
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Email</h3>
-                        <p>kontakt@pglogowski.pl</p>
+                    <h3>Telefon</h3>
+                    <p>+48 XXX XXX XXX</p>
+                </div>
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3>Adres</h3>
-                        <p>ul. Główna 6/9 Sołtyków<br>Radom, 26-615</p>
+                    <h3>Email</h3>
+                    <p>kontakt@pglogowski.pl</p>
+                </div>
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3>Godziny pracy</h3>
-                        <p>Poniedziałek - Piątek: 9:00 - 18:00<br>Sobota: 10:00 - 16:00<br>Niedziela: Nieczynne</p>
+                    <h3>Adres</h3>
+                    <p>ul. Główna 6/9 Sołtyków<br>Radom, 26-615</p>
+                </div>
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Godziny pracy</h3>
+                    <p>Poniedziałek - Piątek: 9:00 - 18:00<br>Sobota: 10:00 - 16:00<br>Niedziela: Nieczynne</p>
+                </div>
+            </div>
+
+            <!-- Google Map -->
+            <div class="map-section fade-in">
+                <h3 class="form-title">Lokalizacja biura</h3>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=21.165741530297363%2C51.34278004183591%2C21.175741530297363%2C51.35278004183591&layer=mapnik&marker=51.34778004183591%2C21.170741530297363"
+                        width="100%"
+                        height="400"
+                        style="border:0; border-radius: 15px;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                    <div class="map-info">
+                        <p><strong>📍 Lokalizacja biura:</strong></p>
+                        <p>ul. Główna 6/9 Sołtyków<br>26-615 Radom</p>
+                        <a href="https://www.google.com/maps/place/51.34778004183591,21.170741530297363" target="_blank" class="map-link">
+                            <i class="fas fa-external-link-alt"></i> Otwórz w Google Maps
+                        </a>
                     </div>
                 </div>
+            </div>
 
-                <!-- Google Map -->
-                <div class="map-section">
-                    <h3 class="form-title">Lokalizacja biura</h3>
-                    <div class="map-container">
-                        <!-- Fallback to OpenStreetMap if Google doesn't work -->
-                        <iframe
-                            src="https://www.openstreetmap.org/export/embed.html?bbox=21.165741530297363%2C51.34278004183591%2C21.175741530297363%2C51.35278004183591&layer=mapnik&marker=51.34778004183591%2C21.170741530297363"
-                            width="100%"
-                            height="400"
-                            style="border:0; border-radius: 15px;"
-                            allowfullscreen=""
-                            loading="lazy">
-                        </iframe>
-                        <div class="map-info">
-                            <p><strong>📍 Lokalizacja biura:</strong></p>
-                            <p>ul. Główna 6/9 Sołtyków<br>26-615 Radom</p>
-                            <p>Współrzędne: 51.34778, 21.17074</p>
-                            <a href="https://www.google.com/maps/place/51.34778004183591,21.170741530297363" target="_blank" class="map-link">
-                                <i class="fas fa-external-link-alt"></i> Otwórz w Google Maps
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <!-- Contact Form -->
+            <div class="contact-form-section fade-in">
+                <h3 class="form-title">Skontaktuj się ze mną</h3>
+                <p class="form-subtitle">Opisz swój problem prawny - odpowiem najszybciej jak to możliwe</p>
 
-                <!-- Contact Form -->
-                <div class="contact-form-section">
-                    <h3 class="form-title">Skontaktuj się ze mną</h3>
-                    <p class="form-subtitle">Opisz swój problem prawny - odpowiem najszybciej jak to możliwe</p>
-
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">Imię *</label>
-                                <input type="text" id="firstName" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Nazwisko *</label>
-                                <input type="text" id="lastName" name="lastName" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Numer telefonu *</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                        </div>
-
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="problem">Opisz swój problem prawny *</label>
-                            <textarea id="problem" name="problem" rows="6" placeholder="Opisz szczegółowo swoją sytuację prawną..." required></textarea>
+                            <label for="firstName">Imię *</label>
+                            <input type="text" id="firstName" name="firstName" required>
                         </div>
-
-                        <div class="form-group checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="privacy" name="privacy" required>
-                                <span class="checkmark"></span>
-                                Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z
-                                <a href="#" id="rodoLink" class="rodo-link">RODO</a> *
-                            </label>
+                        <div class="form-group">
+                            <label for="lastName">Nazwisko *</label>
+                            <input type="text" id="lastName" name="lastName" required>
                         </div>
+                    </div>
 
-                        <button type="submit" class="btn btn-primary form-submit">
-                            <i class="fas fa-paper-plane"></i>
-                            Wyślij wiadomość
-                        </button>
-                    </form>
-                </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Numer telefonu *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="problem">Opisz swój problem prawny *</label>
+                        <textarea id="problem" name="problem" rows="6" placeholder="Opisz szczegółowo swoją sytuację prawną..." required></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <span class="checkmark"></span>
+                            Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z
+                            <a href="#" id="rodoLink" class="rodo-link">RODO</a> *
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary form-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Wyślij wiadomość
+                    </button>
+                </form>
             </div>
         </section>
     </main>
@@ -1234,4 +1127,66 @@
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
                 header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // RODO Modal functionality
+        const rodoModal = document.getElementById('rodoModal');
+        const rodoLink = document.getElementById('rodoLink');
+        const closeModal = document.getElementById('closeModal');
+
+        if (rodoLink) {
+            rodoLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                rodoModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        if (closeModal) {
+            closeModal.addEventListener('click', function() {
+                rodoModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        }
+
+        window.addEventListener('click', function(e) {
+            if (e.target === rodoModal) {
+                rodoModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Dziękujemy za wiadomość! Odpowiemy najszybciej jak to możliwe.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
