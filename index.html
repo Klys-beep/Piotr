@@ -20,13 +20,10 @@
             overflow-x: hidden;
         }
 
-        /* Background with professional overlay */
+        /* Clean white background */
         .hero-background {
+            background: #ffffff;
             position: relative;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(248, 250, 252, 0.8) 100%), url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
         }
 
         /* Modern header */
@@ -133,7 +130,7 @@
             background: rgba(59, 130, 246, 0.05);
         }
 
-        /* Hero section with centered logo */
+        /* Hero section with larger centered logo */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -143,43 +140,33 @@
             text-align: center;
             position: relative;
             padding: 0 2rem;
+            background: #ffffff;
         }
 
         .hero-logo {
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             animation: fadeInScale 1.2s ease-out;
         }
 
         .hero-logo img {
-            height: 120px;
+            height: 240px;
             width: auto;
-            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.1));
             transition: all 0.4s ease;
         }
 
         .hero-logo:hover img {
             transform: scale(1.05);
-            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.15));
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.15));
         }
 
         .hero-content {
             max-width: 800px;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #1a1a1a 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
         .hero .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
             color: #4a5568;
             font-weight: 400;
             animation: fadeInUp 1s ease-out 0.6s both;
@@ -282,122 +269,70 @@
             border-radius: 2px;
         }
 
-        /* Interactive services timeline */
+        /* Simplified services layout - centered */
         .services-container {
             position: relative;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .services-timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, #3b82f6, #1d4ed8);
-            transform: translateX(-50%);
-            border-radius: 2px;
+        .services-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
         }
 
         .service-item {
-            position: relative;
-            margin: 3rem 0;
-            display: flex;
-            align-items: center;
-            opacity: 0;
-            animation: slideInTimeline 0.8s ease-out forwards;
-        }
-
-        .service-item:nth-child(odd) {
-            flex-direction: row;
-            text-align: right;
-        }
-
-        .service-item:nth-child(even) {
-            flex-direction: row-reverse;
-            text-align: left;
-        }
-
-        .service-content {
-            flex: 1;
             background: white;
             padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(59, 130, 246, 0.1);
-            margin: 0 3rem;
             transition: all 0.4s ease;
-            position: relative;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
-        .service-content::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 20px;
-            height: 20px;
-            background: #3b82f6;
-            border-radius: 50%;
-            transform: translateY(-50%);
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        .service-item.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .service-item:nth-child(odd) .service-content::before {
-            right: -41px;
-        }
-
-        .service-item:nth-child(even) .service-content::before {
-            left: -41px;
-        }
-
-        .service-content:hover {
+        .service-item:hover {
             transform: translateY(-8px);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
             border-color: rgba(59, 130, 246, 0.3);
         }
 
-        .service-icon-timeline {
-            font-size: 2.5rem;
+        .service-icon {
+            font-size: 3rem;
             color: #3b82f6;
-            margin-bottom: 1rem;
-            display: block;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
         }
 
-        .service-content h3 {
+        .service-item:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-item h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: #1a1a1a;
             font-weight: 600;
         }
 
-        .service-content p {
+        .service-item p {
             color: #4a5568;
             line-height: 1.7;
             font-size: 1rem;
         }
 
-        /* About section */
+        /* About section with enhanced image effects */
         .about {
-            background: linear-gradient(135deg, rgba(248, 250, 252, 0.85) 0%, rgba(226, 232, 240, 0.9) 100%), url('sad.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: #ffffff;
             position: relative;
-            width: 100vw;
-            margin-left: calc(50% - 50vw);
-        }
-
-        .about .section {
-            padding: 6rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
         }
 
         .about-content {
@@ -411,6 +346,14 @@
             font-size: 1.1rem;
             line-height: 1.8;
             color: #4a5568;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .about-text.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .about-text h3 {
@@ -423,6 +366,57 @@
         .about-image {
             text-align: center;
             position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .about-image.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-image {
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .about-image.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .profile-image-container {
+            position: relative;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .profile-image-container::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #3b82f6, #60a5fa, #3b82f6, #1d4ed8);
+            background-size: 300% 300%;
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: -1;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        .profile-image-container:hover::before {
+            opacity: 0.6;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
         }
 
         .profile-image {
@@ -432,12 +426,33 @@
             object-fit: cover;
             border: 4px solid white;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 1;
         }
 
-        .profile-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+        .profile-image-container:hover {
+            transform: translateY(-15px) scale(1.05);
+        }
+
+        .profile-image-container:hover .profile-image {
+            box-shadow: 0 35px 80px rgba(59, 130, 246, 0.4);
+            border-color: rgba(255, 255, 255, 0.9);
+            filter: brightness(1.1) saturate(1.15) contrast(1.05);
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Contact section */
@@ -456,6 +471,13 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(59, 130, 246, 0.1);
             transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .contact-item.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .contact-item:hover {
@@ -491,6 +513,14 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .contact-form-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .form-title {
@@ -605,6 +635,14 @@
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .map-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .map-container {
@@ -750,29 +788,6 @@
             }
         }
 
-        @keyframes slideInTimeline {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .nav-links {
@@ -780,26 +795,7 @@
             }
 
             .hero-logo img {
-                height: 80px;
-            }
-
-            .timeline-line {
-                left: 30px;
-            }
-
-            .service-item {
-                flex-direction: row !important;
-                text-align: left !important;
-            }
-
-            .service-content {
-                margin-left: 4rem;
-                margin-right: 1rem;
-            }
-
-            .service-content::before {
-                left: -41px !important;
-                right: auto !important;
+                height: 120px;
             }
 
             .about-content {
@@ -849,10 +845,9 @@
 
         <section id="home" class="hero">
             <div class="hero-logo">
-                <img src="logo.png" alt="Piotr Głogowski - Radca Prawny">
+                <img src="logo.png" alt="Radca Prawny">
             </div>
             <div class="hero-content">
-                <h1>Piotr Głogowski</h1>
                 <p class="subtitle">Radca Prawny | Profesjonalne doradztwo prawne</p>
                 <div class="cta-buttons">
                     <a href="#contact" class="btn btn-primary">
@@ -870,57 +865,43 @@
 
     <main>
         <section id="services" class="section">
-            <h2 class="section-title fade-in">Zakres działań prawnych</h2>
+            <h2 class="section-title">Zakres działań prawnych</h2>
             <div class="services-container">
-                <div class="services-timeline">
-                    <div class="timeline-line"></div>
-
-                    <div class="service-item" style="animation-delay: 0.2s;">
-                        <div class="service-content">
-                            <i class="fas fa-building service-icon-timeline"></i>
-                            <h3>Prawo korporacyjne</h3>
-                            <p>Kompleksowa obsługa prawna przedsiębiorstw, strukturyzacja transakcji biznesowych, fuzje i przejęcia, zarządzanie compliance oraz strategiczne doradztwo korporacyjne.</p>
-                        </div>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-building service-icon"></i>
+                        <h3>Prawo korporacyjne</h3>
+                        <p>Kompleksowa obsługa prawna przedsiębiorstw, strukturyzacja transakcji biznesowych, fuzje i przejęcia, zarządzanie compliance oraz strategiczne doradztwo korporacyjne.</p>
                     </div>
 
-                    <div class="service-item" style="animation-delay: 0.4s;">
-                        <div class="service-content">
-                            <i class="fas fa-gavel service-icon-timeline"></i>
-                            <h3>Spory</h3>
-                            <p>Reprezentacja w postępowaniach sądowych i arbitrażowych, mediacje, negocjacje ugodowe, dochodzenie roszczeń oraz kompleksowa obrona interesów klientów w sporach prawnych.</p>
-                        </div>
+                    <div class="service-item">
+                        <i class="fas fa-gavel service-icon"></i>
+                        <h3>Spory</h3>
+                        <p>Reprezentacja w postępowaniach sądowych i arbitrażowych, mediacje, negocjacje ugodowe, dochodzenie roszczeń oraz kompleksowa obrona interesów klientów w sporach prawnych.</p>
                     </div>
 
-                    <div class="service-item" style="animation-delay: 0.6s;">
-                        <div class="service-content">
-                            <i class="fas fa-file-contract service-icon-timeline"></i>
-                            <h3>Prawo kontraktowe</h3>
-                            <p>Profesjonalne sporządzanie i przeglądanie i negocjowanie umów w celu ochrony interesów Twojej firmy.</p>
-                        </div>
+                    <div class="service-item">
+                        <i class="fas fa-file-contract service-icon"></i>
+                        <h3>Prawo kontraktowe</h3>
+                        <p>Profesjonalne sporządzanie i przeglądanie i negocjowanie umów w celu ochrony interesów Twojej firmy.</p>
                     </div>
 
-                    <div class="service-item" style="animation-delay: 0.8s;">
-                        <div class="service-content">
-                            <i class="fas fa-users service-icon-timeline"></i>
-                            <h3>Prawo pracy</h3>
-                            <p>Poruszaj się po skomplikowanych kwestiach związanych z zatrudnieniem korzystając z pewności siebie i wiedzy prawniczej.</p>
-                        </div>
+                    <div class="service-item">
+                        <i class="fas fa-users service-icon"></i>
+                        <h3>Prawo pracy</h3>
+                        <p>Poruszaj się po skomplikowanych kwestiach związanych z zatrudnieniem korzystając z pewności siebie i wiedzy prawniczej.</p>
                     </div>
 
-                    <div class="service-item" style="animation-delay: 1.0s;">
-                        <div class="service-content">
-                            <i class="fas fa-lightbulb service-icon-timeline"></i>
-                            <h3>Własność intelektualna</h3>
-                            <p>Chroń swoje innowacje, znaki towarowe, dzieła twórcze dzięki kompleksowym strategiom ochrony własności intelektualnej.</p>
-                        </div>
+                    <div class="service-item">
+                        <i class="fas fa-lightbulb service-icon"></i>
+                        <h3>Własność intelektualna</h3>
+                        <p>Chroń swoje innowacje, znaki towarowe, dzieła twórcze dzięki kompleksowym strategiom ochrony własności intelektualnej.</p>
                     </div>
 
-                    <div class="service-item" style="animation-delay: 1.2s;">
-                        <div class="service-content">
-                            <i class="fas fa-home service-icon-timeline"></i>
-                            <h3>Prawo nieruchomości</h3>
-                            <p>Obsługa transakcji kupna-sprzedaży, umowy najmu i dzierżawy, sprawy własnościowe, projekty deweloperskie oraz rozwiązywanie sporów dotyczących nieruchomości.</p>
-                        </div>
+                    <div class="service-item">
+                        <i class="fas fa-home service-icon"></i>
+                        <h3>Prawo nieruchomości</h3>
+                        <p>Obsługa transakcji kupna-sprzedaży, umowy najmu i dzierżawy, sprawy własnościowe, projekty deweloperskie oraz rozwiązywanie sporów dotyczących nieruchomości.</p>
                     </div>
                 </div>
             </div>
@@ -928,45 +909,47 @@
 
         <section id="about" class="about">
             <div class="section">
-                <h2 class="section-title fade-in">O mnie</h2>
+                <h2 class="section-title">O mnie</h2>
                 <div class="about-content">
-                    <div class="about-text fade-in">
+                    <div class="about-text">
                         <h3>Nowy gracz na rynku prawniczym</h3>
                         <p>Jako nowy uczestnik rynku usług prawnych, wnoszę świeże spojrzenie na tradycyjne podejście do prawa. Łączę nowoczesne metody pracy z solidnymi podstawami prawniczymi, oferując klientom elastyczne i skuteczne rozwiązania.</p>
                         <p>Moim celem jest zapewnienie kompleksowej obsługi prawnej, która nie tylko rozwiązuje bieżące problemy, ale także pomaga w strategicznym planowaniu i unikaniu potencjalnych komplikacji prawnych w przyszłości.</p>
                     </div>
-                    <div class="about-image fade-in">
-                        <img src="piotr.png" alt="Piotr Głogowski - Radca Prawny" class="profile-image">
+                    <div class="about-image">
+                        <div class="profile-image-container">
+                            <img src="piotr.png" alt="Radca Prawny" class="profile-image">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="section">
-            <h2 class="section-title fade-in">Kontakt</h2>
+            <h2 class="section-title">Kontakt</h2>
             <div class="contact-info">
-                <div class="contact-item fade-in">
+                <div class="contact-item">
                     <div class="contact-icon">
                         <i class="fas fa-phone"></i>
                     </div>
                     <h3>Telefon</h3>
                     <p>+48 XXX XXX XXX</p>
                 </div>
-                <div class="contact-item fade-in">
+                <div class="contact-item">
                     <div class="contact-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3>Email</h3>
                     <p>kontakt@pglogowski.pl</p>
                 </div>
-                <div class="contact-item fade-in">
+                <div class="contact-item">
                     <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <h3>Adres</h3>
                     <p>ul. Główna 6/9 Sołtyków<br>Radom, 26-615</p>
                 </div>
-                <div class="contact-item fade-in">
+                <div class="contact-item">
                     <div class="contact-icon">
                         <i class="fas fa-clock"></i>
                     </div>
@@ -976,7 +959,7 @@
             </div>
 
             <!-- Google Map -->
-            <div class="map-section fade-in">
+            <div class="map-section">
                 <h3 class="form-title">Lokalizacja biura</h3>
                 <div class="map-container">
                     <iframe
@@ -998,7 +981,7 @@
             </div>
 
             <!-- Contact Form -->
-            <div class="contact-form-section fade-in">
+            <div class="contact-form-section">
                 <h3 class="form-title">Skontaktuj się ze mną</h3>
                 <p class="form-subtitle">Opisz swój problem prawny - odpowiem najszybciej jak to możliwe</p>
 
@@ -1132,22 +1115,34 @@
             }
         });
 
-        // Intersection Observer for animations
+        // Enhanced Intersection Observer for smooth fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    // Add staggered delay for service items
+                    if (entry.target.classList.contains('service-item')) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 150);
+                    } else if (entry.target.classList.contains('contact-item')) {
+                        // Staggered animation for contact items
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 100);
+                    } else {
+                        entry.target.classList.add('visible');
+                    }
                 }
             });
         }, observerOptions);
 
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
+        // Observe all animated elements
+        document.querySelectorAll('.service-item, .about-text, .about-image, .contact-item, .contact-form-section, .map-section').forEach(el => {
             observer.observe(el);
         });
 
@@ -1185,6 +1180,18 @@
                 e.preventDefault();
                 alert('Dziękujemy za wiadomość! Odpowiemy najszybciej jak to możliwe.');
                 this.reset();
+            });
+        }
+
+        // Add smooth hover animation for profile image
+        const profileImageContainer = document.querySelector('.profile-image-container');
+        if (profileImageContainer) {
+            profileImageContainer.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.05) rotate(2deg)';
+            });
+
+            profileImageContainer.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
             });
         }
     </script>
