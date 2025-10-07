@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piotr Głogowski - Radca Prawny</title>
+    <title>Kancelaria Radcy Prawnego Piotr Głogowski | Prawnik Radom - obsługa prawna firm i osób prywatnych</title>
+    <meta name="description" content="Kancelaria prawna w Radomiu. Skuteczny radca prawny Piotr Głogowski - sprawy cywilne, gospodarcze, windykacja, upadłość konsumencka, prawo spółek, odszkodowania, podatki. Pomoc prawna w całej Polsce.">
+    <meta name="keywords" content="kancelaria prawna Radom, radca prawny Radom, prawnik Radom, kancelaria Głogowski, obsługa prawna firm, upadłość konsumencka Radom, odszkodowania Radom, windykacja Radom, doradztwo podatkowe Radom, prawo spółek">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -269,17 +271,17 @@
             border-radius: 2px;
         }
 
-        /* Simplified services layout - centered */
+        /* Services layout */
         .services-container {
             position: relative;
-            max-width: 900px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .services-grid {
             display: grid;
             gap: 2rem;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         }
 
         .service-item {
@@ -327,6 +329,8 @@
             color: #4a5568;
             line-height: 1.7;
             font-size: 1rem;
+            margin-bottom: 0.8rem;
+            text-align: left;
         }
 
         /* About section with enhanced image effects */
@@ -361,6 +365,10 @@
             margin-bottom: 1.5rem;
             font-size: 1.8rem;
             font-weight: 600;
+        }
+
+        .about-text p {
+            margin-bottom: 1.2rem;
         }
 
         .about-image {
@@ -427,6 +435,62 @@
         .profile-image-container:hover .profile-image {
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15), 0 0 50px rgba(59, 130, 246, 0.25);
             border-color: rgba(255, 255, 255, 1);
+        }
+
+        /* Why Us Section */
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-us-item {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.4s ease;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .why-us-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .why-us-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .why-us-icon {
+            font-size: 3rem;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .why-us-item:hover .why-us-icon {
+            transform: scale(1.1);
+        }
+
+        .why-us-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .why-us-item p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
         /* Contact section */
@@ -739,6 +803,11 @@
             margin-bottom: 0.5rem;
         }
 
+        .modal-body ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
         /* Animations */
         @keyframes fadeInScale {
             from {
@@ -782,11 +851,6 @@
             }
         }
 
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .nav-links {
@@ -819,6 +883,18 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .why-us-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-item p {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -837,6 +913,7 @@
                 <ul class="nav-links">
                     <li><a href="#services">Usługi</a></li>
                     <li><a href="#about">O mnie</a></li>
+                    <li><a href="#why-us">Dlaczego my</a></li>
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </nav>
@@ -868,39 +945,73 @@
             <div class="services-container">
                 <div class="services-grid">
                     <div class="service-item">
-                        <i class="fas fa-building service-icon"></i>
-                        <h3>Prawo korporacyjne</h3>
-                        <p>Kompleksowa obsługa prawna przedsiębiorstw, strukturyzacja transakcji biznesowych, fuzje i przejęcia, zarządzanie compliance oraz strategiczne doradztwo korporacyjne.</p>
+                        <i class="fas fa-scale-balanced service-icon"></i>
+                        <h3>Spory gospodarcze i cywilne</h3>
+                        <p>Reprezentujemy Klientów w sporach sądowych i pozasądowych - zarówno przedsiębiorców, jak i osoby prywatne. Dążymy do rozwiązania każdej sprawy w sposób szybki i korzystny, minimalizując stres i ryzyko.</p>
+                        <p><strong>Zakres usług:</strong> reprezentacja przed sądami wszystkich instancji • sporządzanie pozwów, wniosków i pism procesowych w toku postępowania • negocjacje ugodowe • doradztwo w zakresie polubownych sposobów rozwiązywania sporów • sprawy rodzinne (alimenty, władza rodzicielska, kontakty z dziećmi) • rozwody • podziały majątku</p>
                     </div>
 
                     <div class="service-item">
-                        <i class="fas fa-gavel service-icon"></i>
-                        <h3>Spory</h3>
-                        <p>Reprezentacja w postępowaniach sądowych i arbitrażowych, mediacje, negocjacje ugodowe, dochodzenie roszczeń oraz kompleksowa obrona interesów klientów w sporach prawnych.</p>
+                        <i class="fas fa-money-bill-wave service-icon"></i>
+                        <h3>Windykacja należności</h3>
+                        <p>Pomagamy w skutecznym odzyskiwaniu długów - szybko, profesjonalnie i z zachowaniem dobrych relacji biznesowych.</p>
+                        <p><strong>Zakres usług:</strong> wezwania do zapłaty i negocjacje • dochodzenie należności w sądzie • egzekucja komornicza i nadzór nad postępowaniem • windykacja należności z zagranicy • monitoring płatności i prewencja zadłużenia</p>
+                    </div>
+
+                    <div class="service-item">
+                        <i class="fas fa-building service-icon"></i>
+                        <h3>Prawo korporacyjne i obsługa spółek/fundacji/stowarzyszeń</h3>
+                        <p>Doradzamy w zakładaniu, prowadzeniu i organizowaniu spółek. Pomagamy w budowaniu bezpiecznych struktur prawnych oraz w obsłudze codziennej działalności firm.</p>
+                        <p><strong>Zakres usług:</strong> zakładanie i rejestracja spółek, fundacji oraz stowarzyszeń • przygotowanie statutów i umów organizacyjnych dla spółek, fundacji oraz stowarzyszeń • zmiany w strukturze spółek, przekształcenia i fuzje • obsługa zgromadzeń wspólników • doradztwo dla zarządów i wspólników • likwidacja</p>
+                    </div>
+
+                    <div class="service-item">
+                        <i class="fas fa-briefcase service-icon"></i>
+                        <h3>Bieżąca obsługa przedsiębiorców</h3>
+                        <p>Stała obsługa prawna to bezpieczeństwo i rozwój Twojej firmy. Kancelaria oferuje elastyczne formy współpracy dla przedsiębiorstw.</p>
+                        <p><strong>Zakres usług:</strong> przygotowanie i analiza umów handlowych • doradztwo w prawie pracy i cywilnym • reprezentacja w kontaktach z urzędami • wsparcie w przetargach i negocjacjach • konsultacje prawne i analiza ryzyka</p>
                     </div>
 
                     <div class="service-item">
                         <i class="fas fa-file-contract service-icon"></i>
-                        <h3>Prawo kontraktowe</h3>
-                        <p>Profesjonalne sporządzanie i przeglądanie i negocjowanie umów w celu ochrony interesów Twojej firmy.</p>
+                        <h3>Umowy i transakcje</h3>
+                        <p>Pomagamy konstruować bezpieczne umowy i przeprowadzać transakcje tak, by chronić interes Klienta.</p>
+                        <p><strong>Zakres usług:</strong> sporządzanie i negocjacja umów • analiza istniejących kontraktów • umowy handlowe, inwestycyjne, najmu i współpracy • doradztwo przy zakupie i sprzedaży nieruchomości • klauzule zabezpieczające</p>
                     </div>
 
                     <div class="service-item">
-                        <i class="fas fa-users service-icon"></i>
-                        <h3>Prawo pracy</h3>
-                        <p>Poruszaj się po skomplikowanych kwestiach związanych z zatrudnieniem korzystając z pewności siebie i wiedzy prawniczej.</p>
+                        <i class="fas fa-chart-line service-icon"></i>
+                        <h3>Upadłość i restrukturyzacja przedsiębiorstw</h3>
+                        <p>Wspieramy przedsiębiorców w sytuacjach kryzysowych. Pomagamy zachować płynność lub przeprowadzić bezpieczną restrukturyzację.</p>
+                        <p><strong>Zakres usług:</strong> analiza kondycji finansowej firmy • przygotowanie wniosku o upadłość lub restrukturyzację • reprezentacja przed sądem i wierzycielami • opracowanie planu naprawczego • doradztwo dla zarządów spółek w zakresie odpowiedzialności majątkowej</p>
                     </div>
 
                     <div class="service-item">
-                        <i class="fas fa-lightbulb service-icon"></i>
-                        <h3>Własność intelektualna</h3>
-                        <p>Chroń swoje innowacje, znaki towarowe, dzieła twórcze dzięki kompleksowym strategiom ochrony własności intelektualnej.</p>
+                        <i class="fas fa-hand-holding-usd service-icon"></i>
+                        <h3>Upadłość konsumencka</h3>
+                        <p>Pomagamy osobom zadłużonym w uzyskaniu oddłużenia i rozpoczęciu nowego etapu życia bez długów.</p>
+                        <p><strong>Zakres usług:</strong> analiza sytuacji finansowej i kwalifikacja do upadłości • przygotowanie wniosku i reprezentacja w sądzie • kontakt z syndykiem • doradztwo przy planie spłaty • wsparcie w negocjacjach z wierzycielami</p>
                     </div>
 
                     <div class="service-item">
-                        <i class="fas fa-home service-icon"></i>
-                        <h3>Prawo nieruchomości</h3>
-                        <p>Obsługa transakcji kupna-sprzedaży, umowy najmu i dzierżawy, sprawy własnościowe, projekty deweloperskie oraz rozwiązywanie sporów dotyczących nieruchomości.</p>
+                        <i class="fas fa-shield-alt service-icon"></i>
+                        <h3>Ochrona majątku i sukcesja</h3>
+                        <p>Doradzamy, jak skutecznie chronić majątek prywatny i firmowy oraz zaplanować jego przekazanie kolejnym pokoleniom.</p>
+                        <p><strong>Zakres usług:</strong> planowanie sukcesji w firmach rodzinnych • fundacje rodzinne • zabezpieczenie majątku przed roszczeniami • doradztwo podatkowe i spadkowe • budowanie struktur majątkowych</p>
+                    </div>
+
+                    <div class="service-item">
+                        <i class="fas fa-car-crash service-icon"></i>
+                        <h3>Odszkodowania</h3>
+                        <p>Pomagamy uzyskać pełne odszkodowanie za szkody osobowe i majątkowe. Reprezentujemy Klientów w negocjacjach i przed sądem.</p>
+                        <p><strong>Zakres usług:</strong> wypadki komunikacyjne i błędy medyczne • wypadki przy pracy • szkody majątkowe i zadośćuczynienia • odwołania od decyzji ubezpieczycieli • reprezentacja w sądzie</p>
+                    </div>
+
+                    <div class="service-item">
+                        <i class="fas fa-calculator service-icon"></i>
+                        <h3>Podatki</h3>
+                        <p>Doradzamy w zakresie podatków, pomagając firmom i osobom prywatnym unikać błędów i planować korzystne rozwiązania.</p>
+                        <p><strong>Zakres usług:</strong> analiza skutków podatkowych transakcji • planowanie i optymalizacja podatkowa • reprezentacja przed urzędami skarbowymi • odwołania od decyzji podatkowych • doradztwo przy podatkach VAT, PIT, CIT, PCC i spadkowych • prowadzenie postępowań z zakresu kontroli podatkowych</p>
                     </div>
                 </div>
             </div>
@@ -911,15 +1022,60 @@
                 <h2 class="section-title">O mnie</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <h3>Nowy gracz na rynku prawniczym</h3>
-                        <p>Jako nowy uczestnik rynku usług prawnych, wnoszę świeże spojrzenie na tradycyjne podejście do prawa. Łączę nowoczesne metody pracy z solidnymi podstawami prawniczymi, oferując klientom elastyczne i skuteczne rozwiązania.</p>
-                        <p>Moim celem jest zapewnienie kompleksowej obsługi prawnej, która nie tylko rozwiązuje bieżące problemy, ale także pomaga w strategicznym planowaniu i unikaniu potencjalnych komplikacji prawnych w przyszłości.</p>
+                        <h3>Radca Prawny - Piotr Głogowski</h3>
+                        <p>Jestem radcą prawnym, aktywnym zawodowo od trzeciego roku studiów. Moją specjalizacją jest szeroko rozumiana praktyka prawa gospodarczego. Podczas studiów oraz w trakcie odbywania aplikacji radcowskiej, współpracowałem z kancelariami radców prawnych oraz doradców restrukturyzacyjnych, realizując zadania związane z obsługą prawną przedsiębiorców, udziałem w postępowaniach restrukturyzacyjnych, upadłościowych i sądowych oraz analizą i przygotowaniem dokumentacji związanej z prowadzonymi sprawami.</p>
+
+                        <p>Mam również doświadczenie w obsłudze prawnej spółek kapitałowych, obejmujące emisje nowych udziałów, przekształcenia, przejęcia przedsiębiorstw, pozyskiwanie finansowania na rozwój podmiotów gospodarczych - w oparciu o finansowanie zewnętrzne dłużne oraz udziałowe, negocjowanie umów biznesowych i wsparcie przedsiębiorców na każdym etapie sprzedaży udziałów oraz reorganizacji spółki.</p>
+
+                        <p><strong>Moja zawodowa misja</strong> to pomoc przedsiębiorcom w porządkowaniu ich otoczenia prawnego. Głęboko wierzę, że prawnik biznesu to ktoś, kto z jednej strony doskonale zna prawo, a jednocześnie rozumie biznes i realia prowadzenia działalności gospodarczej w Polsce.</p>
+
+                        <p>Jeśli jesteś przedsiębiorcą, angażujesz się w swoją działalność operacyjną, rozwój produktu i firmy - ja zapewniam wsparcie prawne. Dbam o to, aby nie zaskoczyły Cię potencjalne kłopoty - a jeśli przyjdą - aby ich konsekwencje nie były zbyt dolegliwe. Jak to robię? Doradzam w bieżących sprawach, sporządzam dokumenty i procedury, dbam, byś wiedział, jakie ryzyka prawne generuje Twój biznes i jak tymi ryzykami zarządzać. Buduję też grupy kapitałowe, wspieram prawnie procesy ochrony majątku i planowania sukcesyjnego. W swojej praktyce mam również kontakt ze sprawami podatkowymi oraz karnymi skarbowymi.</p>
+
+                        <p>Szeroka wiedza i doświadczenie pozwalają mi proponować skuteczne, często nieszablonowe rozwiązania problemów prawnych, uwzględniające nie tylko aspekty prawne sytuacji, ale również kwestie podatkowe.</p>
+
+                        <p>W życiu poza pracą cenię sobie aktywność fizyczną. Możesz spotkać mnie (choć nie tylko) na siłowni, klubie sportów walki czy strzelnicy sportowej. Te sportowe pasje pomagają mi być lepszym prawnikiem - głęboko wierzę, że tak w prawie, jak i w sporcie liczą się wytrwałość, dyscyplina i determinacja. Liczą się też zasady, których należy przestrzegać.</p>
+
+                        <p><strong>Szukasz prawnika, który wesprze Twój biznes? Napisz do mnie. Pomyślimy, co możemy zrobić w Twojej sprawie.</strong></p>
                     </div>
                     <div class="about-image">
                         <div class="profile-image-container">
                             <img src="piotr.png" alt="Radca Prawny" class="profile-image">
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="section" style="background: #f8fafc;">
+            <h2 class="section-title">Dlaczego warto nam zaufać?</h2>
+            <div class="why-us-grid">
+                <div class="why-us-item">
+                    <div class="why-us-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>Indywidualne podejście</h3>
+                    <p>Stawiamy na indywidualne podejście do każdej sprawy. Każdy Klient otrzymuje pełne zaangażowanie, analizę sytuacji oraz rozwiązanie dopasowane do jego potrzeb i celów.</p>
+                </div>
+                <div class="why-us-item">
+                    <div class="why-us-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Rzetelność, doświadczenie i pełna poufność</h3>
+                    <p>Nasza praca opiera się na rzetelności, doświadczeniu i pełnej poufności - gwarantujemy bezpieczeństwo powierzonych informacji oraz uczciwą ocenę każdej sprawy.</p>
+                </div>
+                <div class="why-us-item">
+                    <div class="why-us-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Skuteczność i przejrzystość</h3>
+                    <p>Działamy skutecznie i przejrzyście - od początku współpracy przedstawiamy jasne zasady, możliwe scenariusze i przewidywane koszty.</p>
+                </div>
+                <div class="why-us-item">
+                    <div class="why-us-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Prosty i zrozumiały język</h3>
+                    <p>W kontaktach z Klientami używamy prostego i zrozumiałego języka, dzięki czemu prawo staje się narzędziem, a nie barierą.</p>
                 </div>
             </div>
         </section>
@@ -1133,6 +1289,11 @@
                         setTimeout(() => {
                             entry.target.classList.add('visible');
                         }, index * 100);
+                    } else if (entry.target.classList.contains('why-us-item')) {
+                        // Staggered animation for why-us items
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 100);
                     } else {
                         entry.target.classList.add('visible');
                     }
@@ -1141,7 +1302,7 @@
         }, observerOptions);
 
         // Observe all animated elements
-        document.querySelectorAll('.service-item, .about-text, .about-image, .contact-item, .contact-form-section, .map-section').forEach(el => {
+        document.querySelectorAll('.service-item, .about-text, .about-image, .contact-item, .contact-form-section, .map-section, .why-us-item').forEach(el => {
             observer.observe(el);
         });
 
