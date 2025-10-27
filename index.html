@@ -15,11 +15,12 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
             line-height: 1.6;
             color: #1a1a1a;
             background: #ffffff;
             overflow-x: hidden;
+            font-size: 18px;
         }
 
         /* Clean white background */
@@ -61,6 +62,37 @@
             display: flex;
             align-items: center;
             gap: 2rem;
+            position: relative;
+            min-width: 200px;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            position: relative;
+        }
+
+        .animated-logo {
+            position: fixed;
+            top: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 240px;
+            width: auto;
+            z-index: 1001;
+            transition: all 1s cubic-bezier(0.4, 0.0, 0.2, 1);
+            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.1));
+            pointer-events: none;
+        }
+
+        .animated-logo.moved {
+            position: fixed;
+            top: 1.5rem;
+            left: 2rem;
+            transform: translate(0, 0);
+            height: 50px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+            z-index: 1001;
         }
 
         .phone-header {
@@ -69,8 +101,8 @@
             gap: 8px;
             color: #3b82f6;
             font-weight: 600;
-            font-size: 0.95rem;
-            padding: 8px 16px;
+            font-size: 1rem;
+            padding: 10px 18px;
             background: rgba(59, 130, 246, 0.05);
             border-radius: 25px;
             border: 1px solid rgba(59, 130, 246, 0.1);
@@ -138,28 +170,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             text-align: center;
             position: relative;
             padding: 0 2rem;
+            padding-top: 180px;
             background: #ffffff;
         }
 
         .hero-logo {
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
             animation: fadeInScale 1.2s ease-out;
-        }
-
-        .hero-logo img {
             height: 240px;
-            width: auto;
-            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.1));
-            transition: all 0.4s ease;
-        }
-
-        .hero-logo:hover img {
-            transform: scale(1.05);
-            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.15));
         }
 
         .hero-content {
@@ -167,11 +189,10 @@
         }
 
         .hero .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 3rem;
             color: #4a5568;
             font-weight: 400;
-            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
         .cta-buttons {
@@ -179,14 +200,13 @@
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.9s both;
         }
 
         .btn {
-            padding: 14px 32px;
+            padding: 16px 36px;
             border: none;
             border-radius: 12px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.4s ease;
@@ -245,7 +265,7 @@
         }
 
         .section {
-            padding: 6rem 2rem;
+            padding: 4rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -270,21 +290,6 @@
             transform: translateX(-50%);
             border-radius: 2px;
         }
-
-        .service-item ul {
-            text-align:left;
-            margin-top: 1rem;
-            padding-left: 1.5 rem;
-            list-style-type: disc;
-        }
-
-        .service-item ul li {
-            color: #4a5568;
-            line-height: 1.7;
-            font-size: 1rem;
-            margin=bottom: 0.5rem;
-        }
-
 
         /* Services layout */
         .services-container {
@@ -334,7 +339,7 @@
         }
 
         .service-item h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
             color: #1a1a1a;
             font-weight: 600;
@@ -343,9 +348,66 @@
         .service-item p {
             color: #4a5568;
             line-height: 1.7;
-            font-size: 1rem;
+            font-size: 1.05rem;
             margin-bottom: 0.8rem;
+            text-align: center;
+        }
+
+        .service-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .service-details.expanded {
+            max-height: 1000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .service-item ul {
             text-align: left;
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+            list-style-type: disc;
+        }
+
+        .service-item ul li {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .expand-btn {
+            margin-top: 1rem;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 44px;
+            min-width: 120px;
+        }
+
+        .expand-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .expand-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .expand-btn.active i {
+            transform: rotate(180deg);
         }
 
         /* About section with enhanced image effects */
@@ -362,7 +424,7 @@
         }
 
         .about-text {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             line-height: 1.8;
             color: #4a5568;
             opacity: 0;
@@ -431,8 +493,8 @@
         }
 
         .profile-image {
-            width: 300px;
-            height: 300px;
+            width: 380px;
+            height: 380px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid rgba(255, 255, 255, 0.8);
@@ -496,7 +558,7 @@
         }
 
         .why-us-item h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
             color: #1a1a1a;
             font-weight: 600;
@@ -505,7 +567,7 @@
         .why-us-item p {
             color: #4a5568;
             line-height: 1.7;
-            font-size: 1rem;
+            font-size: 1.05rem;
         }
 
         /* Contact section */
@@ -628,6 +690,7 @@
             color: #1a1a1a;
             font-size: 1rem;
             transition: all 0.3s ease;
+            font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
         }
 
         .form-group input::placeholder,
@@ -872,8 +935,13 @@
                 display: none;
             }
 
-            .hero-logo img {
-                height: 120px;
+            .animated-logo {
+                height: 180px;
+            }
+
+            .animated-logo.moved {
+                height: 40px;
+                left: 1rem;
             }
 
             .about-content {
@@ -890,8 +958,8 @@
             }
 
             .profile-image {
-                width: 200px;
-                height: 200px;
+                width: 280px;
+                height: 280px;
             }
 
             .cta-buttons {
@@ -906,10 +974,6 @@
             .services-grid {
                 grid-template-columns: 1fr;
             }
-
-            .service-item p {
-                text-align: center;
-            }
         }
     </style>
 </head>
@@ -918,25 +982,26 @@
         <header>
             <nav>
                 <div class="nav-left">
+                    <div class="logo-placeholder"></div>
                     <div class="phone-header">
                         <i class="fas fa-phone"></i>
                         <span>+48 668 125 155</span>
                     </div>
-                    <a href="#" class="logo-nav">
-                    </a>
                 </div>
                 <ul class="nav-links">
                     <li><a href="#services">Usługi</a></li>
                     <li><a href="#about">O mnie</a></li>
-                    <li><a href="#why-us">Dlaczego my</a></li>
+                    <li><a href="#why-us">O kancelarii</a></li>
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </nav>
         </header>
 
+        <img src="logo.png" alt="Logo Kancelarii" class="animated-logo" id="animatedLogo">
+
         <section id="home" class="hero">
-            <div class="hero-logo">
-                <img src="logo.png" alt="Radca Prawny">
+            <div class="hero-logo" id="heroLogo">
+                <div style="height: 240px;"></div>
             </div>
             <div class="hero-content">
                 <p class="subtitle">Radca Prawny | Profesjonalne doradztwo prawne</p>
@@ -956,155 +1021,205 @@
 
     <main>
         <section id="services" class="section">
-    <h2 class="section-title">Zakres działań prawnych</h2>
-    <div class="services-container">
-        <div class="services-grid">
-            <div class="service-item">
-                <i class="fas fa-scale-balanced service-icon"></i>
-                <h3>Spory gospodarcze i cywilne</h3>
-                <p>Reprezentujemy Klientów w sporach sądowych i pozasądowych - zarówno przedsiębiorców, jak i osoby prywatne. Dążymy do rozwiązania każdej sprawy w sposób szybki i korzystny, minimalizując stres i ryzyko.</p>
-                <p><strong>Zakres usług:</strong></p>
-                <ul>
-                    <li>reprezentacja przed sądami wszystkich instancji</li>
-                    <li>sporządzanie pozwów, wniosków i pism procesowych w toku postępowania</li>
-                    <li>negocjacje ugodowe</li>
-                    <li>doradztwo w zakresie polubownych sposobów rozwiązywania sporów</li>
-                    <li>sprawy rodzinne (alimenty, władza rodzicielska, kontakty z dziećmi)</li>
-                    <li>rozwody</li>
-                    <li>podziały majątku</li>
-                </ul>
-            </div>
+            <h2 class="section-title">Zakres działań prawnych</h2>
+            <div class="services-container">
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-scale-balanced service-icon"></i>
+                        <h3>Spory gospodarcze i cywilne</h3>
+                        <p>Reprezentujemy Klientów w sporach sądowych i pozasądowych - zarówno przedsiębiorców, jak i osoby prywatne.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>reprezentacja przed sądami wszystkich instancji</li>
+                                <li>sporządzanie pozwów, wniosków i pism procesowych w toku postępowania</li>
+                                <li>negocjacje ugodowe</li>
+                                <li>doradztwo w zakresie polubownych sposobów rozwiązywania sporów</li>
+                                <li>sprawy rodzinne (alimenty, władza rodzicielska, kontakty z dziećmi)</li>
+                                <li>rozwody</li>
+                                <li>podziały majątku</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <div class="service-item">
-                <i class="fas fa-money-bill-wave service-icon"></i>
-                <h3>Windykacja należności</h3>
-                <p>Pomagamy w skutecznym odzyskiwaniu długów - szybko, profesjonalnie i z zachowaniem dobrych relacji biznesowych.</p>
-                <p><strong>Zakres usług:</strong></p>
-                <ul>
-                    <li>wezwania do zapłaty i negocjacje</li>
-                    <li>dochodzenie należności w sądzie</li>
-                    <li>egzekucja komornicza i nadzór nad postępowaniem</li>
-                    <li>windykacja należności z zagranicy</li>
-                    <li>monitoring płatności i prewencja zadłużenia</li>
-                </ul>
-            </div>
+                    <div class="service-item">
+                        <i class="fas fa-money-bill-wave service-icon"></i>
+                        <h3>Windykacja należności</h3>
+                        <p>Pomagamy w skutecznym odzyskiwaniu długów - szybko, profesjonalnie i z zachowaniem dobrych relacji biznesowych.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>wezwania do zapłaty i negocjacje</li>
+                                <li>dochodzenie należności w sądzie</li>
+                                <li>egzekucja komornicza i nadzór nad postępowaniem</li>
+                                <li>windykacja należności z zagranicy</li>
+                                <li>monitoring płatności i prewencja zadłużenia</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <div class="service-item">
-                <i class="fas fa-building service-icon"></i>
-                <h3>Prawo korporacyjne i obsługa spółek/fundacji/stowarzyszeń</h3>
-                <p>Doradzamy w zakładaniu, prowadzeniu i organizowaniu spółek. Pomagamy w budowaniu bezpiecznych struktur prawnych oraz w obsłudze codziennej działalności firm.</p>
-                <p><strong>Zakres usług:</strong></p>
-                <ul>
-                    <li>zakładanie i rejestracja spółek, fundacji oraz stowarzyszeń</li>
-                    <li>przygotowanie statutów i umów organizacyjnych dla spółek, fundacji oraz stowarzyszeń</li>
-                    <li>zmiany w strukturze spółek, przekształcenia i fuzje</li>
-                    <li>obsługa zgromadzeń wspólników</li>
-                    <li>doradztwo dla zarządów i wspólników</li>
-                    <li>likwidacja</li>
-                </ul>
-            </div>
+                    <div class="service-item">
+                        <i class="fas fa-building service-icon"></i>
+                        <h3>Prawo korporacyjne i obsługa spółek/fundacji/stowarzyszeń</h3>
+                        <p>Doradzamy w zakładaniu, prowadzeniu i organizowaniu spółek. Pomagamy w budowaniu bezpiecznych struktur prawnych.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>zakładanie i rejestracja spółek, fundacji oraz stowarzyszeń</li>
+                                <li>przygotowanie statutów i umów organizacyjnych dla spółek, fundacji oraz stowarzyszeń</li>
+                                <li>zmiany w strukturze spółek, przekształcenia i fuzje</li>
+                                <li>obsługa zgromadzeń wspólników</li>
+                                <li>doradztwo dla zarządów i wspólników</li>
+                                <li>likwidacja</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <div class="service-item">
-                <i class="fas fa-briefcase service-icon"></i>
-                <h3>Bieżąca obsługa przedsiębiorców</h3>
-                <p>Stała obsługa prawna to bezpieczeństwo i rozwój Twojej firmy. Kancelaria oferuje elastyczne formy współpracy dla przedsiębiorstw.</p>
-                <p><strong>Zakres usług:</strong></p>
-                <ul>
-                    <li>przygotowanie i analiza umów handlowych</li>
-                    <li>doradztwo w prawie pracy i cywilnym</li>
-                    <li>reprezentacja w kontaktach z urzędami</li>
-                    <li>wsparcie w przetargach i negocjacjach</li>
-                    <li>konsultacje prawne i analiza ryzyka</li>
-                </ul>
-            </div>
+                    <div class="service-item">
+                        <i class="fas fa-briefcase service-icon"></i>
+                        <h3>Bieżąca obsługa przedsiębiorców</h3>
+                        <p>Stała obsługa prawna to bezpieczeństwo i rozwój Twojej firmy. Kancelaria oferuje elastyczne formy współpracy.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>przygotowanie i analiza umów handlowych</li>
+                                <li>doradztwo w prawie pracy i cywilnym</li>
+                                <li>reprezentacja w kontaktach z urzędami</li>
+                                <li>wsparcie w przetargach i negocjacjach</li>
+                                <li>konsultacje prawne i analiza ryzyka</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <div class="service-item">
-                <i class="fas fa-file-contract service-icon"></i>
-                <h3>Umowy i transakcje</h3>
-                <p>Pomagamy konstruować bezpieczne umowy i przeprowadzać transakcje tak, by chronić interes Klienta.</p>
-                <p><strong>Zakres usług:</strong></p>
-                <ul>
-                    <li>sporządzanie i negocjacja umów</li>
-                    <li>analiza istniejących kontraktów</li>
-                    <li>umowy handlowe, inwestycyjne, najmu i współpracy</li>
-                    <li>doradztwo przy zakupie i sprzedaży nieruchomości</li>
-                    <li>klauzule zabezpieczające</li>
-                </ul>
-            </div>
+                    <div class="service-item">
+                        <i class="fas fa-file-contract service-icon"></i>
+                        <h3>Umowy i transakcje</h3>
+                        <p>Pomagamy konstruować bezpieczne umowy i przeprowadzać transakcje tak, by chronić interes Klienta.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>sporządzanie i negocjacja umów</li>
+                                <li>analiza istniejących kontraktów</li>
+                                <li>umowy handlowe, inwestycyjne, najmu i współpracy</li>
+                                <li>doradztwo przy zakupie i sprzedaży nieruchomości</li>
+                                <li>klauzule zabezpieczające</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <div class="service-item">
-                <i class="fas fa-chart-line service-icon"></i>
-                <h3>Upadłość i restrukturyzacja przedsiębiorstw</h3>
-                <p>Wspieramy przedsiębiorców w sytuacjach kryzysowych. Pomagamy zachować płynność lub przeprowadzić bezpieczną restrukturyzację.</p>
-                <p><strong>Zakres usług:</strong></p>
-                <ul>
-                    <li>analiza kondycji finansowej firmy</li>
-                    <li>przygotowanie wniosku o upadłość lub restrukturyzację</li>
-                    <li>reprezentacja przed sądem i wierzycielami</li>
-                    <li>opracowanie planu naprawczego</li>
-                    <li>doradztwo dla zarządów spółek w zakresie odpowiedzialności majątkowej</li>
-                </ul>
-            </div>
+                    <div class="service-item">
+                        <i class="fas fa-chart-line service-icon"></i>
+                        <h3>Upadłość i restrukturyzacja przedsiębiorstw</h3>
+                        <p>Wspieramy przedsiębiorców w sytuacjach kryzysowych. Pomagamy zachować płynność lub przeprowadzić bezpieczną restrukturyzację.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>analiza kondycji finansowej firmy</li>
+                                <li>przygotowanie wniosku o upadłość lub restrukturyzację</li>
+                                <li>reprezentacja przed sądem i wierzycielami</li>
+                                <li>opracowanie planu naprawczego</li>
+                                <li>doradztwo dla zarządów spółek w zakresie odpowiedzialności majątkowej</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <div class="service-item">
-                <i class="fas fa-hand-holding-usd service-icon"></i>
-                <h3>Upadłość konsumencka</h3>
-                <p>Pomagamy osobom zadłużonym w uzyskaniu oddłużenia i rozpoczęciu nowego etapu życia bez długów.</p>
-                <p><strong>Zakres usług:</strong></p>
-                <ul>
-                    <li>analiza sytuacji finansowej i kwalifikacja do upadłości</li>
-                    <li>przygotowanie wniosku i reprezentacja w sądzie</li>
-                    <li>kontakt z syndykiem</li>
-                    <li>doradztwo przy planie spłaty</li>
-                    <li>wsparcie w negocjacjach z wierzycielami</li>
-                </ul>
-            </div>
+                    <div class="service-item">
+                        <i class="fas fa-hand-holding-usd service-icon"></i>
+                        <h3>Upadłość konsumencka</h3>
+                        <p>Pomagamy osobom zadłużonym w uzyskaniu oddłużenia i rozpoczęciu nowego etapu życia bez długów.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>analiza sytuacji finansowej i kwalifikacja do upadłości</li>
+                                <li>przygotowanie wniosku i reprezentacja w sądzie</li>
+                                <li>kontakt z syndykiem</li>
+                                <li>doradztwo przy planie spłaty</li>
+                                <li>wsparcie w negocjacjach z wierzycielami</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <div class="service-item">
-                <i class="fas fa-shield-alt service-icon"></i>
-                <h3>Ochrona majątku i sukcesja</h3>
-                <p>Doradzamy, jak skutecznie chronić majątek prywatny i firmowy oraz zaplanować jego przekazanie kolejnym pokoleniom.</p>
-                <p><strong>Zakres usług:</strong></p>
-                <ul>
-                    <li>planowanie sukcesji w firmach rodzinnych</li>
-                    <li>fundacje rodzinne</li>
-                    <li>zabezpieczenie majątku przed roszczeniami</li>
-                    <li>doradztwo podatkowe i spadkowe</li>
-                    <li>budowanie struktur majątkowych</li>
-                </ul>
-            </div>
+                    <div class="service-item">
+                        <i class="fas fa-shield-alt service-icon"></i>
+                        <h3>Ochrona majątku i sukcesja</h3>
+                        <p>Doradzamy, jak skutecznie chronić majątek prywatny i firmowy oraz zaplanować jego przekazanie kolejnym pokoleniom.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>planowanie sukcesji w firmach rodzinnych</li>
+                                <li>fundacje rodzinne</li>
+                                <li>zabezpieczenie majątku przed roszczeniami</li>
+                                <li>doradztwo podatkowe i spadkowe</li>
+                                <li>budowanie struktur majątkowych</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <div class="service-item">
-                <i class="fas fa-car-crash service-icon"></i>
-                <h3>Odszkodowania</h3>
-                <p>Pomagamy uzyskać pełne odszkodowanie za szkody osobowe i majątkowe. Reprezentujemy Klientów w negocjacjach i przed sądem.</p>
-                <p><strong>Zakres usług:</strong></p>
-                <ul>
-                    <li>wypadki komunikacyjne i błędy medyczne</li>
-                    <li>wypadki przy pracy</li>
-                    <li>szkody majątkowe i zadośćuczynienia</li>
-                    <li>odwołania od decyzji ubezpieczycieli</li>
-                    <li>reprezentacja w sądzie</li>
-                </ul>
-            </div>
+                    <div class="service-item">
+                        <i class="fas fa-car-crash service-icon"></i>
+                        <h3>Odszkodowania</h3>
+                        <p>Pomagamy uzyskać pełne odszkodowanie za szkody osobowe i majątkowe. Reprezentujemy Klientów w negocjacjach i przed sądem.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>wypadki komunikacyjne i błędy medyczne</li>
+                                <li>wypadki przy pracy</li>
+                                <li>szkody majątkowe i zadośćuczynienia</li>
+                                <li>odwołania od decyzji ubezpieczycieli</li>
+                                <li>reprezentacja w sądzie</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <div class="service-item">
-                <i class="fas fa-calculator service-icon"></i>
-                <h3>Podatki</h3>
-                <p>Doradzamy w zakresie podatków, pomagając firmom i osobom prywatnym unikać błędów i planować korzystne rozwiązania.</p>
-                <p><strong>Zakres usług:</strong></p>
-                <ul>
-                    <li>analiza skutków podatkowych transakcji</li>
-                    <li>planowanie i optymalizacja podatkowa</li>
-                    <li>reprezentacja przed urzędami skarbowymi</li>
-                    <li>odwołania od decyzji podatkowych</li>
-                    <li>doradztwo przy podatkach VAT, PIT, CIT, PCC i spadkowych</li>
-                    <li>prowadzenie postępowań z zakresu kontroli podatkowych</li>
-                </ul>
+                    <div class="service-item">
+                        <i class="fas fa-calculator service-icon"></i>
+                        <h3>Podatki</h3>
+                        <p>Doradzamy w zakresie podatków, pomagając firmom i osobom prywatnym unikać błędów i planować korzystne rozwiązania.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>analiza skutków podatkowych transakcji</li>
+                                <li>planowanie i optymalizacja podatkowa</li>
+                                <li>reprezentacja przed urzędami skarbowymi</li>
+                                <li>odwołania od decyzji podatkowych</li>
+                                <li>doradztwo przy podatkach VAT, PIT, CIT, PCC i spadkowych</li>
+                                <li>prowadzenie postępowań z zakresu kontroli podatkowych</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
         <section id="about" class="about">
             <div class="section">
@@ -1135,60 +1250,87 @@
             </div>
         </section>
 
-        <section id="contact" class="section">
-    <h2 class="section-title">Kontakt</h2>
-    <div class="contact-info">
-        <div class="contact-item">
-            <div class="contact-icon">
-                <i class="fas fa-phone"></i>
+        <section id="why-us" class="section">
+            <h2 class="section-title">O kancelarii</h2>
+            <div class="why-us-grid">
+                <div class="why-us-item">
+                    <div class="why-us-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Doświadczenie</h3>
+                    <p>Lata praktyki w prawie gospodarczym, restrukturyzacji i obsłudze przedsiębiorców</p>
+                </div>
+                <div class="why-us-item">
+                    <div class="why-us-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Indywidualne podejście</h3>
+                    <p>Każda sprawa jest unikalna - dostosowujemy rozwiązania do Twoich potrzeb</p>
+                </div>
+                <div class="why-us-item">
+                    <div class="why-us-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Praktyczne rozwiązania</h3>
+                    <p>Nie tylko teoria - proponujemy skuteczne, sprawdzone w praktyce rozwiązania</p>
+                </div>
             </div>
-            <h3>Telefon</h3>
-            <p>+48 668 125 155</p>
-        </div>
-        <div class="contact-item">
-            <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-            </div>
-            <h3>Email</h3>
-            <p>kontakt@pglogowski.pl</p>
-        </div>
-        <div class="contact-item">
-            <div class="contact-icon">
-                <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <h3>Adres</h3>
-            <p>ul. Grzybowska 7/43<br>26-600 Radom</p>
-        </div>
-        <div class="contact-item">
-            <div class="contact-icon">
-                <i class="fas fa-clock"></i>
-            </div>
-            <h3>Godziny pracy</h3>
-            <p>Poniedziałek - Piątek: 8:00 - 16:00<br>Sobota - Niedziela: Zamknięte</p>
-        </div>
-    </div>
+        </section>
 
-    <!-- Google Map -->
-    <div class="map-section">
-        <h3 class="form-title">Lokalizacja biura</h3>
-        <div class="map-container">
-            <iframe
-                src="https://www.openstreetmap.org/export/embed.html?bbox=21.14336%2C51.39889%2C21.15336%2C51.40889&layer=mapnik&marker=51.40389%2C21.14836"
-                width="100%"
-                height="400"
-                style="border:0; border-radius: 15px;"
-                allowfullscreen=""
-                loading="lazy">
-            </iframe>
-            <div class="map-info">
-                <p><strong>📍 Lokalizacja biura:</strong></p>
-                <p>ul. Grzybowska 7/43<br>26-600 Radom</p>
-                <a href="https://www.google.com/maps/place/Grzybowska+7,+26-600+Radom" target="_blank" class="map-link">
-                    <i class="fas fa-external-link-alt"></i> Otwórz w Google Maps
-                </a>
+        <section id="contact" class="section">
+            <h2 class="section-title">Kontakt</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Telefon</h3>
+                    <p>+48 668 125 155</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>kontakt@pglogowski.pl</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Adres</h3>
+                    <p>ul. Grzybowska 7/43<br>26-600 Radom</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Godziny pracy</h3>
+                    <p>Poniedziałek - Piątek: 8:00 - 16:00<br>Sobota - Niedziela: Zamknięte</p>
+                </div>
             </div>
-        </div>
-    </div>
+
+            <!-- Google Map -->
+            <div class="map-section">
+                <h3 class="form-title">Lokalizacja biura</h3>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=21.14336%2C51.39889%2C21.15336%2C51.40889&layer=mapnik&marker=51.40389%2C21.14836"
+                        width="100%"
+                        height="400"
+                        style="border:0; border-radius: 15px;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                    <div class="map-info">
+                        <p><strong>📍 Lokalizacja biura:</strong></p>
+                        <p>ul. Grzybowska 7/43<br>26-600 Radom</p>
+                        <a href="https://www.google.com/maps/place/Grzybowska+7,+26-600+Radom" target="_blank" class="map-link">
+                            <i class="fas fa-external-link-alt"></i> Otwórz w Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             <!-- Contact Form -->
             <div class="contact-form-section">
@@ -1301,6 +1443,60 @@
     </div>
 
     <script>
+        // Logo animation on scroll
+        let lastScrollTop = 0;
+        let logoMoved = false;
+        let ticking = false;
+
+        function handleLogoAnimation() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const animatedLogo = document.getElementById('animatedLogo');
+            const heroLogo = document.getElementById('heroLogo');
+
+            // Move logo to header when scrolling down past 80px (before it covers the text)
+            if (scrollTop > 80 && !logoMoved) {
+                animatedLogo.classList.add('moved');
+                if (heroLogo) {
+                    heroLogo.style.opacity = '0';
+                }
+                logoMoved = true;
+            }
+            // Move logo back to center when scrolling back to top
+            else if (scrollTop <= 80 && logoMoved) {
+                animatedLogo.classList.remove('moved');
+                if (heroLogo) {
+                    heroLogo.style.opacity = '1';
+                }
+                logoMoved = false;
+            }
+
+            lastScrollTop = scrollTop;
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(handleLogoAnimation);
+                ticking = true;
+            }
+        });
+
+        // Toggle service details
+        function toggleDetails(button) {
+            const serviceItem = button.closest('.service-item');
+            const details = serviceItem.querySelector('.service-details');
+
+            if (details.classList.contains('expanded')) {
+                details.classList.remove('expanded');
+                button.classList.remove('active');
+                button.innerHTML = 'Rozwiń <i class="fas fa-chevron-down"></i>';
+            } else {
+                details.classList.add('expanded');
+                button.classList.add('active');
+                button.innerHTML = 'Zwiń <i class="fas fa-chevron-down"></i>';
+            }
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1334,18 +1530,15 @@
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    // Add staggered delay for service items
                     if (entry.target.classList.contains('service-item')) {
                         setTimeout(() => {
                             entry.target.classList.add('visible');
                         }, index * 150);
                     } else if (entry.target.classList.contains('contact-item')) {
-                        // Staggered animation for contact items
                         setTimeout(() => {
                             entry.target.classList.add('visible');
                         }, index * 100);
                     } else if (entry.target.classList.contains('why-us-item')) {
-                        // Staggered animation for why-us items
                         setTimeout(() => {
                             entry.target.classList.add('visible');
                         }, index * 100);
