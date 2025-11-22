@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <title>Piotr Głogowski - Radca Prawny Radom</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preload" as="image" href="biurowce.webp">
-    <link rel="icon" type="x-icon" href="/favicon.ico">
-    <link rel="icon" type="png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="google-site-verification" content="SP6jmrhdssAFG3fJ9ddoHrU3Vfpdys0JI8MVRTnXnPA">
+<title>Piotr Głogowski - Radca Prawny Radom | Kancelaria Prawna</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kancelaria prawna w Radomiu. Skuteczny radca prawny Piotr Głogowski - sprawy cywilne, gospodarcze, windykacja, upadłość konsumencka, prawo spółek, odszkodowania, podatki. Pomoc prawna w całej Polsce.">
-    <meta name="keywords" content="kancelaria prawna Radom, radca prawny Radom, prawnik Radom, kancelaria Głogowski, obsługa prawna firm, upadłość konsumencka Radom, odszkodowania Radom, windykacja Radom, doradztwo podatkowe Radom, prawo spółek">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="description" content="Skuteczny radca prawny w Radomiu. Piotr Głogowski - sprawy cywilne, gospodarcze, windykacja. Umów konsultację: +48 668 125 155.">
+
+    <link rel="preload" as="image" href="biurowce.webp">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-</noscript>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400;1,700&family=Great+Vibes&family=Lato:wght@300;400;600&display=swap"
+          rel="stylesheet" media="print" onload="this.media='all'">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          media="print" onload="this.media='all'">
+
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400;1,700&family=Great+Vibes&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+
+    <link rel="icon" type="x-icon" href="/favicon.ico">
     <style>
 
         .btn {
@@ -151,14 +152,23 @@
          * This makes global style changes (like primary color) instant and easier to maintain.
          */
         :root {
-            --color-primary: #3b82f6;
-            --color-primary-dark: #1d4ed8;
-            --color-text-dark: #1a1a1a;
-            --color-text-body: #4a5568;
-            --color-bg-light: #ffffff;
-            --color-border: #e2e8f0;
-            --font-body: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
-        }
+    /* CHANGED: Deeper, more authoritative Navy Blue */
+    --color-primary: #0f2a4a;
+    /* CHANGED: A slightly lighter navy for hover states */
+    --color-primary-dark: #1e3f66;
+    /* CHANGED: A gold accent color for subtle highlights */
+    --color-accent: #c4a77d;
+
+    /* CHANGED: Softer black for text (easier to read) */
+    --color-text-dark: #2d3748;
+    --color-text-body: #4a5568;
+
+    --color-bg-light: #ffffff;
+    --color-border: #e2e8f0;
+
+    /* CHANGED: Switch body font to Lato (Google Font) for clean readability */
+    --font-body: 'Lato', sans-serif;
+}
 
         * {
             margin: 0;
@@ -595,36 +605,44 @@ nav {
         }
 
         .expand-btn {
-            margin-top: 1rem;
-            padding: 10px 24px;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            min-height: 44px;
-            min-width: 120px;
-        }
+    margin-top: 0.8rem;
+    padding: 6px 16px; /* Much tighter padding */
+    background: transparent;
 
-        .expand-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-        }
+    /* Thin elegant border */
+    border: 1px solid var(--color-border);
+    border-radius: 50px; /* Pill shape */
 
-        .expand-btn i {
-            transition: transform 0.3s ease;
-        }
+    color: var(--color-text-body);
+    font-size: 0.85rem;
+    font-weight: 600;
 
-        .expand-btn.active i {
-            transform: rotate(180deg);
-        }
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+
+    min-height: auto;
+    min-width: auto;
+    box-shadow: none;
+}
+
+.expand-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.expand-btn i {
+    transition: transform 0.3s ease;
+}
+
+.expand-btn.active i {
+    transform: rotate(180deg);
+}
 
         /* About section with enhanced image effects */
         .about {
@@ -1834,6 +1852,113 @@ nav {
     70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
 }
+
+        /* --- SERVICE ICON ANIMATIONS --- */
+
+/* 1. The Scales of Justice (Tipping left and right) */
+@keyframes balance-tip {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+.service-item:hover .fa-scale-balanced {
+    animation: balance-tip 2.5s ease-in-out infinite;
+    color: var(--color-accent); /* Turns gold on hover */
+}
+
+/* 2. Money/Windykacja (Floating/Waving) */
+@keyframes bill-wave {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-8px) rotate(-5deg); }
+}
+.service-item:hover .fa-money-bill-wave {
+    animation: bill-wave 2s ease-in-out infinite;
+    color: #10b981; /* Subtle money green */
+}
+
+/* 3. Corporate/Building (Firm stability - slight scale up) */
+@keyframes build-rise {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+.service-item:hover .fa-building {
+    animation: build-rise 3s ease-in-out infinite;
+    color: var(--color-primary);
+}
+
+/* 4. Briefcase (Business shake) */
+@keyframes case-shake {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+}
+.service-item:hover .fa-briefcase {
+    animation: case-shake 2s ease-in-out infinite;
+    color: var(--color-accent);
+}
+
+/* 5. Contract (Writing/Pulse) */
+@keyframes doc-pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.service-item:hover .fa-file-contract {
+    animation: doc-pulse 2s infinite;
+}
+
+/* 6. Chart Line (Success/Growth) */
+@keyframes chart-grow {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.1); }
+    100% { transform: translateY(0) scale(1); }
+}
+.service-item:hover .fa-chart-line {
+    animation: chart-grow 1.5s ease-in-out infinite;
+    color: #ef4444; /* Alert/Urgent red tone */
+}
+
+/* 7. Hand Holding USD (Gentle Offering) */
+@keyframes hand-offer {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+.service-item:hover .fa-hand-holding-usd {
+    animation: hand-offer 2s ease-in-out infinite;
+}
+
+/* 8. Shield (Protection Glint) */
+@keyframes shield-protect {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); text-shadow: 0 0 15px var(--color-accent); }
+    100% { transform: scale(1); }
+}
+.service-item:hover .fa-shield-alt {
+    animation: shield-protect 2s infinite;
+    color: var(--color-primary);
+}
+
+/* 9. Car Crash (Impact Shake) */
+@keyframes crash-shake {
+    0%, 100% { transform: translate(0, 0); }
+    10%, 30%, 50%, 70%, 90% { transform: translate(-2px, 1px); }
+    20%, 40%, 60%, 80% { transform: translate(2px, -1px); }
+}
+.service-item:hover .fa-car-crash {
+    animation: crash-shake 0.8s ease-in-out;
+    color: #e63946; /* Warning red */
+}
+
+/* 10. Calculator (Taxes - Buttons pressing) */
+@keyframes calc-tap {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0); }
+    75% { transform: rotate(-10deg); }
+}
+.service-item:hover .fa-calculator {
+    animation: calc-tap 1.5s ease infinite;
+}
     </style>
     <link rel="canonical" href="https://radcaglogowski.pl/">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
@@ -1903,7 +2028,6 @@ nav {
   ]
 }
 </script>
-
     <meta property="og:title" content="Kancelaria Radcy Prawnego Piotr Głogowski">
 <meta property="og:description" content="Radca prawny w Radomiu — obsługa prawna spółek, sprawy cywilne, windykacja. Umów konsultację: +48 668 125 155.">
 <meta property="og:image" content="https://radcaglogowski.pl/logo.webp">
@@ -2182,14 +2306,13 @@ nav {
     <div class="about-content">
 
         <div class="about-text">
+            <div style="border-left: 4px solid var(--color-accent); padding-left: 20px; margin: 30px 0; font-style: italic; color: var(--color-text-dark);">
+    "Moja zawodowa misja to nie tylko cytowanie przepisów. To porządkowanie otoczenia prawnego moich Klientów tak, aby mogli bezpiecznie rozwijać swój biznes i życie prywatne."
+</div>
 
             <p>Jestem radcą prawnym, specjalizującym się w szeroko rozumianym prawie gospodarczym. Realizowałem zadania związane z obsługą prawną przedsiębiorców, udziałem w postępowaniach restrukturyzacyjnych, upadłościowych i sądowych oraz analizą i przygotowaniem dokumentacji związanej z prowadzonymi sprawami.</p>
 
             <p>Mam doświadczenie w obsłudze prawnej spółek kapitałowych, obejmujące emisje nowych udziałów, przekształcenia, przejęcia przedsiębiorstw, pozyskiwanie finansowania na rozwój podmiotów gospodarczych - w oparciu o finansowanie zewnętrzne dłużne oraz udziałowe, negocjowanie umów biznesowych i wsparcie przedsiębiorców na każdym etapie sprzedaży udziałów oraz reorganizacji spółki.</p>
-
-            <div class="about-highlight">
-                <p>Moja zawodowa misja to pomoc przedsiębiorcom w porządkowaniu ich otoczenia prawnego. Głęboko wierzę, że prawnik biznesu to ktoś, kto z jednej strony doskonale zna prawo, a jednocześnie rozumie biznes i realia prowadzenia działalności gospodarczej w Polsce.</p>
-            </div>
 
             <p>Jeśli jesteś przedsiębiorcą, angażujesz się w swoją działalność operacyjną, rozwój produktu i firmy - ja zapewniam wsparcie prawne. Dbam o to, aby nie zaskoczyły Cię potencjalne kłopoty - a jeśli przyjdą - aby ich konsekwencje nie były zbyt dolegliwe. Jak to robię? Doradzam w bieżących sprawach, sporządzam dokumenty i procedury, dbam, byś wiedział, jakie ryzyka prawne generuje Twój biznes i jak tymi ryzykami zarządzać. Buduję też grupy kapitałowe, wspieram prawnie procesy ochrony majątku i planowania sukcesyjnego. W swojej praktyce mam również kontakt ze sprawami podatkowymi oraz karnymi skarbowymi.</p>
 
