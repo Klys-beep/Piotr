@@ -2,9 +2,11 @@
 <html lang="pl">
 <head>
     <title>Piotr Głogowski - Radca Prawny Radom</title>
-
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" as="image" href="biurowce.webp">
+    <link rel="icon" type="x-icon" href="/favicon.ico">
+    <link rel="icon" type="png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="google-site-verification" content="SP6jmrhdssAFG3fJ9ddoHrU3Vfpdys0JI8MVRTnXnPA">
@@ -12,10 +14,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kancelaria prawna w Radomiu. Skuteczny radca prawny Piotr Głogowski - sprawy cywilne, gospodarcze, windykacja, upadłość konsumencka, prawo spółek, odszkodowania, podatki. Pomoc prawna w całej Polsce.">
     <meta name="keywords" content="kancelaria prawna Radom, radca prawny Radom, prawnik Radom, kancelaria Głogowski, obsługa prawna firm, upadłość konsumencka Radom, odszkodowania Radom, windykacja Radom, doradztwo podatkowe Radom, prawo spółek">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript>
     <link href="https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</noscript>
     <style>
 
         .btn {
@@ -38,6 +45,7 @@
 .slogan-text {
     display: inline-block;
     white-space: nowrap;
+    width: 320px;
 }
 
 .cursor {
@@ -90,7 +98,6 @@
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
             justify-content: space-between;
             flex-wrap: wrap; /* Zapewnia, że kolumny "zawiną się" na małych ekranach */
             gap: 30px; /* Odstęp między kolumnami */
@@ -162,7 +169,7 @@
         body {
             font-family: var(--font-body);
             line-height: 1.6;
-            color: #2442a8;
+            color: #183491;
             background: var(--color-bg-light);
             overflow-x: hidden;
             font-size: 18px;
@@ -187,7 +194,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('biurowce.jpg');
+    background-image: url('biurowce.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -300,13 +307,13 @@ nav {
 
 .animated-logo {
     position: fixed;
-    top: 200px;
+    top: 210px;
     left: 50%;
     transform: translateX(-50%);
     height: 240px;
     width: auto;
     z-index: 1001;
-    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: all 0.25s cubic-bezier(0.4, 0.0, 0.2, 1);
     filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.1));
     pointer-events: none;
 }
@@ -1173,6 +1180,71 @@ nav {
                 transform: scale(1.05);
             }
         }
+
+        /* --- Animated Contact Icons --- */
+
+/* 1. Phone Animation (Ringing/Vibrating) */
+@keyframes icon-ring {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(15deg); }
+    20% { transform: rotate(-15deg); }
+    30% { transform: rotate(10deg); }
+    40% { transform: rotate(-10deg); }
+    50% { transform: rotate(5deg); }
+    60% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.contact-item:hover .fa-phone {
+    animation: icon-ring 0.8s ease-in-out;
+    /* Removes the conflict with the existing scale transform on the parent */
+    display: inline-block;
+}
+
+/* 2. Email Animation (Floating/Bobbing) */
+@keyframes icon-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.contact-item:hover .fa-envelope {
+    animation: icon-float 1.5s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* 3. Map Marker Animation (Bouncing Pin) */
+@keyframes icon-bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.contact-item:hover .fa-map-marker-alt {
+    animation: icon-bounce 1s ease;
+    display: inline-block;
+}
+
+/* 4. Clock Animation (Pendulum Swing) */
+@keyframes icon-swing {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-15deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.contact-item:hover .fa-clock {
+    animation: icon-swing 1.2s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* Optional: Enhance the parent container hover slightly */
+.contact-item:hover .contact-icon {
+    /* We override the original scale here to let the specific animations take over,
+       or we can keep it to zoom AND animate.
+       Let's keep the color change but soften the scale so the animation is clearer. */
+    transform: scale(1.05);
+}
 /* Mobile responsiveness */
         @media (max-width: 768px) {
             body {
@@ -1453,6 +1525,206 @@ nav {
                 padding: 1.5rem 1rem;
             }
         }
+
+        /* --- Aesthetic CTA Button Animations --- */
+
+/* 1. General Button Base */
+.btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth "ease-out" feel */
+}
+
+/* 2. Primary Button ("Umów konsultację")
+   Effect: Shimmering Living Gradient + Icon Wiggle */
+.btn-primary {
+    /* Create a large gradient that we can move */
+    background: linear-gradient(120deg, var(--color-primary), #1a3682, var(--color-primary), #3b82f6);
+    background-size: 300% 100%;
+    border: none;
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+    /* Constant subtle flow animation */
+    animation: gradient-flow 8s ease infinite;
+}
+
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+}
+
+/* Animate the Calendar Icon inside */
+.btn-primary:hover i {
+    animation: calendar-shake 0.5s ease-in-out forwards;
+}
+
+@keyframes calendar-shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg) scale(1.2); }
+    50% { transform: rotate(-10deg) scale(1.2); }
+    75% { transform: rotate(5deg) scale(1.2); }
+    100% { transform: rotate(0deg) scale(1.1); }
+}
+
+/* 3. Secondary Button ("Poznaj usługi")
+   Effect: "Fill Up" Background + Arrow Drop */
+.btn-secondary {
+    background: transparent;
+    color: var(--color-primary);
+    /* Use a border that matches the text */
+    border: 2px solid var(--color-primary);
+    box-shadow: none;
+}
+
+/* Create the "fill" layer that sits invisible below */
+.btn-secondary::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; /* Starts empty */
+    background-color: var(--color-primary);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: -1; /* Puts it behind the text */
+}
+
+.btn-secondary:hover {
+    color: white; /* Text turns white */
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+}
+
+.btn-secondary:hover::after {
+    height: 100%; /* Fills up from bottom */
+}
+
+/* Animate the Arrow Icon inside */
+.btn-secondary:hover i {
+    transform: translateY(5px); /* Arrow points down/moves down */
+    transition: transform 0.3s ease;
+}
+
+        /* --- "O Mnie" Section Upgrade --- */
+
+/* 1. Typography: The "Lead" Paragraph */
+.about-lead {
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--color-primary-dark); /* Darker blue for emphasis */
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-family: "Unna", serif; /* Using your serif font for elegance */
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1.5rem;
+}
+
+/* 2. The "Values Grid" (Icons inside text) */
+.about-values {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.value-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    font-size: 0.95rem;
+}
+
+.value-item i {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+}
+
+/* 3. The Handwritten Signature */
+.signature-block {
+    margin-top: 2.5rem;
+}
+
+.signature {
+    font-family: 'Great Vibes', cursive; /* The font we added in Step 1 */
+    font-size: 2.5rem;
+    color: var(--color-primary-dark);
+    margin-top: 0.5rem;
+    transform: rotate(-2deg); /* Slight natural tilt */
+}
+
+/* 4. The Floating Glass Card over the Image */
+.floating-card {
+    position: absolute;
+    bottom: -40px;
+    left: -40px; /* Moves it to the left of the image */
+    width: 260px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px); /* The "Frosted Glass" effect */
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.4);
+    z-index: 10;
+    animation: float-card 4s ease-in-out infinite;
+    text-align: left;
+}
+
+.card-icon {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.card-text {
+    font-family: "Unna", serif;
+    font-style: italic;
+    color: var(--color-text-dark);
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin: 0 !important; /* Override global p margin */
+}
+
+/* Animation for the card */
+@keyframes float-card {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .floating-card {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: -40px; /* Pull it up over the image */
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+
+    .about-values {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .about-lead {
+        font-size: 1.15rem;
+    }
+}
     </style>
     <link rel="canonical" href="https://radcaglogowski.pl/">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
@@ -1542,7 +1814,7 @@ nav {
                 <div class="nav-left">
                     <div class="logo-placeholder"></div>
                     <div class="phone-header">
-                        <i class="fas fa-phone"></i>
+                                <i class="fas fa-phone"></i>
                         <span>+48 668 125 155</span>
                     </div>
                 </div>
@@ -1796,34 +2068,52 @@ nav {
             </div>
         </section>
 
-        <section id="about" class="about">
-            <div class="section">
-                <h2 class="section-title">O mnie</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Radca Prawny - Piotr Głogowski</h3>
-                        <p>Jestem radcą prawnym, specjalizującym się w szeroko rozumianym prawie gospodarczym. Realizowałem zadania związane z obsługą prawną przedsiębiorców, udziałem w postępowaniach restrukturyzacyjnych, upadłościowych i sądowych oraz analizą i przygotowaniem dokumentacji związanej z prowadzonymi sprawami.</p>
+        <section id="about" class="about section">
+    <h2 class="section-title">O mnie</h2>
+    <div class="about-content">
 
-                        <p>Mam doświadczenie w obsłudze prawnej spółek kapitałowych, obejmujące emisje nowych udziałów, przekształcenia, przejęcia przedsiębiorstw, pozyskiwanie finansowania na rozwój podmiotów gospodarczych - w oparciu o finansowanie zewnętrzne dłużne oraz udziałowe, negocjowanie umów biznesowych i wsparcie przedsiębiorców na każdym etapie sprzedaży udziałów oraz reorganizacji spółki.</p>
+        <div class="about-text">
+            <p class="about-lead">
+                Moja misja to nie tylko paragrafy. To pomoc przedsiębiorcom w budowaniu bezpiecznego otoczenia, w którym biznes może rosnąć bez zbędnego ryzyka.
+            </p>
 
-                        <p><strong>Moja zawodowa misja</strong> to pomoc przedsiębiorcom w porządkowaniu ich otoczenia prawnego. Głęboko wierzę, że prawnik biznesu to ktoś, kto z jednej strony doskonale zna prawo, a jednocześnie rozumie biznes i realia prowadzenia działalności gospodarczej w Polsce.</p>
+            <p>Jako radca prawny specjalizuję się w szeroko rozumianym prawie gospodarczym. Od lat wspieram zarządy spółek w kluczowych momentach: od emisji udziałów i fuzji, po restrukturyzacje i sukcesję majątkową.</p>
 
-                        <p>Jeśli jesteś przedsiębiorcą, angażujesz się w swoją działalność operacyjną, rozwój produktu i firmy - ja zapewniam wsparcie prawne. Dbam o to, aby nie zaskoczyły Cię potencjalne kłopoty - a jeśli przyjdą - aby ich konsekwencje nie były zbyt dolegliwe. Jak to robię? Doradzam w bieżących sprawach, sporządzam dokumenty i procedury, dbam, byś wiedział, jakie ryzyka prawne generuje Twój biznes i jak tymi ryzykami zarządzać. Buduję też grupy kapitałowe, wspieram prawnie procesy ochrony majątku i planowania sukcesyjnego. W swojej praktyce mam również kontakt ze sprawami podatkowymi oraz karnymi skarbowymi.</p>
-
-                        <p>Szeroka wiedza i doświadczenie pozwalają mi proponować skuteczne, często nieszablonowe rozwiązania problemów prawnych, uwzględniające nie tylko aspekty prawne sytuacji, ale również kwestie podatkowe.</p>
-
-                        <p>W życiu poza pracą cenię sobie aktywność fizyczną. Sportowe pasje pomagają mi być lepszym prawnikiem - w prawie, jak i w sporcie liczą się wytrwałość, dyscyplina i determinacja. Liczą się zasady, których należy przestrzegać.</p>
-
-                        <p><strong>Szukasz prawnika, który wesprze Twój biznes? Napisz do mnie. Pomyślimy, co możemy zrobić w Twojej sprawie.</strong></p>
-                    </div>
-                    <div class="about-image">
-                        <div class="profile-image-container">
-                            <img src="piotr.webp" alt="Radca Prawny" class="profile-image">
-                        </div>
-                    </div>
+            <div class="about-values">
+                <div class="value-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Bezpieczeństwo</span>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Strategia</span>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-handshake"></i>
+                    <span>Partnerstwo</span>
                 </div>
             </div>
-        </section>
+
+            <p>Wierzę, że nowoczesny prawnik musi rozumieć biznes. Dlatego nie ograniczam się do cytowania przepisów – doradzam, jak zarządzać ryzykiem i budować stabilne struktury. W życiu prywatnym, podobnie jak w zawodowym, kieruję się dyscypliną i zasadami fair play, które czerpię ze sportowej pasji.</p>
+
+            <div class="signature-block">
+                <p>Zapraszam do współpracy,</p>
+                <div class="signature">Piotr Głogowski</div>
+            </div>
+        </div>
+
+        <div class="about-image">
+            <div class="profile-image-container">
+                <img src="piotr.webp" alt="Radca Prawny Piotr Głogowski" class="profile-image">
+
+                <div class="floating-card">
+                    <div class="card-icon"><i class="fas fa-quote-right"></i></div>
+                    <p class="card-text">Skuteczność to połączenie wiedzy z odwagą w działaniu.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
@@ -1863,13 +2153,7 @@ nav {
             <div class="map-section">
                 <h3 class="form-title">Lokalizacja biura</h3>
                 <div class="map-container">
-                    <iframe
-                        src="https://www.openstreetmap.org/export/embed.html?bbox=21.14336%2C51.39889%2C21.15336%2C51.40889&layer=mapnik&marker=51.40389%2C21.14836"
-                        width="100%"
-                        height="400"
-                        style="border:0; border-radius: 15px;"
-                        allowfullscreen=""
-                        loading="lazy">
+                    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=21.14336%2C51.39889%2…" width="100%" height="400" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy" title="Mapa z lokalizacją Kancelarii">
                     </iframe>
                     <div class="map-info">
                         <p><strong>📍 Lokalizacja biura:</strong></p>
@@ -1881,16 +2165,7 @@ nav {
                 </div>
             </div>
         </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>© 2025 Piotr Głogowski - Radca Prawny. Wszelkie prawa zastrzeżone.</p>
-            <div class="footer-links">
-                <a href="javascript:void(0)" id="footerRodoLink">Polityka Prywatności / RODO</a>
-            </div>
-        </div>
-    </footer>
+    </main>S
 
     <div id="rodoModal" class="modal">
         <div class="modal-content">
@@ -2193,14 +2468,6 @@ nav {
             <p>26-615 Radom</p>
             <p>Telefon: +48 668 125 155</p>
             <p>Email: kontakt@radcaglogowski.pl</p>
-        </div>
-
-        <div class="footer-authority">
-            <h3>Dane Rejestrowe i Zawodowe</h3>
-            <p>Radca Prawny wpisany na listę Okręgowej Izby Radców Prawnych w Kielcach (OIRP).</p>
-            <p>Numer wpisu: <strong>KI/Rd/1043</strong></p>
-            <p>NIP: 7963041479</p>
-            <p>REGON: 542879478</p>
         </div>
     </div>
     <div class="footer-copyright">
