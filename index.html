@@ -10,595 +10,2673 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400;1,700&family=Great+Vibes&family=Lato:wght@300;400;600&display=swap"
+          rel="stylesheet" media="print" onload="this.media='all'">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          media="print" onload="this.media='all'">
+
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400;1,700&family=Great+Vibes&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
 
     <link rel="icon" type="x-icon" href="/favicon.ico">
-
     <style>
-        /* --- VARIABLES --- */
-        :root {
-            --color-primary: #0a1f35;  /* Ciemny granat (Hagestad style) */
-            --color-primary-light: #162e4d;
-            --color-gold: #c4a77d;     /* Złoto/Beż */
-            --color-text-dark: #1a1a1a;
-            --color-text-grey: #666666;
-            --color-bg-offwhite: #f9f9f9;
-            --color-bg-white: #ffffff;
+
+        .btn {
+    position: relative;
+    top: 12px !important;
+}
+
+        .hero-slogan {
+    font-family: "Unna", serif;
+    font-size: 2.5em;
+    font-weight: 300;
+    font-style: italic;
+    position: relative;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slogan-text {
+    display: inline-block;
+    white-space: nowrap;
+    width: 320px;
+}
+
+.cursor {
+    animation: blink 0.5s infinite;
+    display: inline-block;
+}
+
+@keyframes blink {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+.unna-regular {
+  font-family: "Unna", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.unna-bold {
+  font-family: "Unna", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.unna-regular-italic {
+  font-family: "Unna", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.unna-bold-italic {
+  font-family: "Unna", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+        footer {
+            background-color: #333; /* Ciemne tło stopki */
+            color: #fff; /* Biały tekst */
+            padding: 30px 20px;
+            font-size: 15px;
         }
 
-        /* --- RESET --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Lato', sans-serif; color: var(--color-text-dark); background: var(--color-bg-white); line-height: 1.7; font-size: 17px; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--color-primary); font-weight: 700; line-height: 1.2; }
-        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
-        ul { list-style: none; }
-
-        /* --- UTILITIES --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .section-padding { padding: 100px 0; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header span { display: block; font-family: 'Lato', sans-serif; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; color: var(--color-gold); margin-bottom: 15px; font-weight: 700; }
-        .section-header h2 { font-size: 2.8rem; color: var(--color-primary); position: relative; display: inline-block; }
-        .section-header h2::after { content: ''; display: block; width: 60px; height: 3px; background-color: var(--color-gold); margin: 20px auto 0; }
-
-        /* --- NAVIGATION --- */
-        header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 0; background: transparent; transition: background 0.4s ease, padding 0.4s ease; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        header.scrolled { background: var(--color-primary); padding: 15px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-
-        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 0 40px; }
-        .brand-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: white; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
-        .nav-links { display: flex; gap: 40px; }
-        .nav-links a { color: rgba(255,255,255,0.8); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; position: relative; }
-        .nav-links a:hover { color: var(--color-gold); }
-        .nav-links a::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -5px; left: 0; background-color: var(--color-gold); transition: width 0.3s ease; }
-        .nav-links a:hover::after { width: 100%; }
-        .cta-nav-btn { border: 1px solid var(--color-gold); padding: 10px 24px; color: var(--color-gold) !important; transition: all 0.3s ease; }
-        .cta-nav-btn:hover { background: var(--color-gold); color: var(--color-primary) !important; }
-        .menu-toggle { display: none; color: white; font-size: 1.5rem; cursor: pointer; background: none; border: none; }
-
-        /* --- HERO --- */
-        .hero { height: 100vh; background-image: url('biurowce.webp'); background-size: cover; background-position: center; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(rgba(10, 31, 53, 0.85), rgba(10, 31, 53, 0.7)); }
-        .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; margin-top: 60px; animation: fadeUp 1.2s ease-out; }
-
-        /* LOGO FIX: Usunięto filtry, aby logo było widoczne w oryginale */
-        .hero-logo-large { height: 180px; width: auto; margin-bottom: 30px; }
-
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: white; margin-bottom: 20px; font-weight: 400; letter-spacing: -1px; }
-        .hero-subtitle { font-family: 'Lato', sans-serif; font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-bottom: 40px; letter-spacing: 1px; font-weight: 300; min-height: 1.8em; }
-        .btn-main { display: inline-block; padding: 18px 40px; background-color: var(--color-gold); color: var(--color-primary); font-family: 'Lato', sans-serif; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 0.9rem; border: 1px solid var(--color-gold); transition: all 0.4s ease; }
-        .btn-main:hover { background-color: transparent; color: white; border-color: white; }
-
-        /* --- INTRO --- */
-        .intro-section { background: white; text-align: center; }
-        .intro-text { font-size: 1.3rem; color: var(--color-text-grey); max-width: 800px; margin: 0 auto; font-weight: 300; line-height: 1.8; }
-        .intro-text strong { color: var(--color-primary); font-weight: 700; }
-
-        /* --- SERVICES GRID --- */
-        .services-section { background-color: var(--color-bg-offwhite); border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 0; }
-
-        .service-card { background: white; padding: 50px 40px; border: 1px solid #eee; transition: all 0.4s ease; position: relative; overflow: hidden; }
-        .service-icon { font-size: 2rem; color: var(--color-gold); margin-bottom: 25px; transition: all 0.4s ease; }
-        .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; transition: color 0.4s ease; }
-        .service-card p { color: var(--color-text-grey); font-size: 0.95rem; margin-bottom: 20px; transition: color 0.4s ease; }
-
-        /* HOVER EFFECTS & COLOR FIX */
-        .service-card:hover { background-color: var(--color-primary); border-color: var(--color-primary); transform: translateY(-5px); z-index: 2; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
-
-        /* Change text colors to white on hover */
-        .service-card:hover h3,
-        .service-card:hover p,
-        .service-card:hover .expand-btn { color: white; }
-        .service-card:hover .service-icon { color: white; }
-
-        /* FIX: Ensure lists turn white inside expanded details on hover */
-        .service-card:hover .service-details,
-        .service-card:hover .service-details ul,
-        .service-card:hover .service-details li,
-        .service-card:hover .service-details strong {
-            color: rgba(255, 255, 255, 0.9) !important;
+        /* Kontener dla kolumn */
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Zapewnia, że kolumny "zawiną się" na małych ekranach */
+            gap: 30px; /* Odstęp między kolumnami */
+            padding-bottom: 20px;
         }
 
-        .service-details { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
-        .service-details.expanded { max-height: 800px; } /* Increased max-height */
-        .service-details ul { text-align: left; padding-left: 20px; margin-top: 20px; list-style-type: square; }
-        .service-details li { margin-bottom: 8px; font-size: 0.9rem; color: inherit; }
+        /* Nagłówki sekcji stopki */
+        .footer-container h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #555; /* Lekki separator */
+            padding-bottom: 5px;
+        }
 
-        .expand-btn { background: none; border: none; color: var(--color-gold); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; gap: 10px; padding: 0; }
+        /* Resetowanie stylu listy */
+        .footer-legal ul {
+            list-style: none;
+            padding: 0;
+        }
 
-        /* --- ABOUT --- */
-        .about-section { background: white; }
-        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-image-wrapper { position: relative; }
-        .about-image-wrapper img { width: 100%; height: auto; display: block; filter: grayscale(20%) contrast(110%); border-bottom: 5px solid var(--color-gold); position: relative; z-index: 1; }
-        .about-image-wrapper::before { content: ''; position: absolute; top: -20px; left: -20px; width: 100%; height: 100%; border: 2px solid var(--color-primary); z-index: 0; }
-        .about-content blockquote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--color-primary); border-left: 3px solid var(--color-gold); padding-left: 25px; margin: 30px 0; line-height: 1.5; }
-        .about-content p { color: var(--color-text-grey); margin-bottom: 20px; }
-        .signature { font-family: 'Great Vibes', cursive; font-size: 2rem; color: var(--color-primary); margin-top: 30px; }
+        .footer-legal a {
+            color: #ccc; /* Kolor linków */
+            text-decoration: none;
+            line-height: 1.8;
+        }
 
-        /* --- CONTACT --- */
-        .contact-section { background-color: var(--color-primary); color: white; }
-        .contact-section .section-header h2 { color: white; }
-        .contact-section .section-header span { color: rgba(255,255,255,0.5); }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 60px; }
-        .contact-box { border: 1px solid rgba(255,255,255,0.1); padding: 40px 20px; text-align: center; transition: background 0.3s ease; }
-        .contact-box:hover { background: rgba(255,255,255,0.05); border-color: var(--color-gold); }
-        .contact-box i { font-size: 2rem; color: var(--color-gold); margin-bottom: 20px; }
-        .contact-box h4 { font-family: 'Lato', sans-serif; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; color: white; font-size: 1rem; }
-        .contact-box p, .contact-box a { color: rgba(255,255,255,0.7); font-size: 1.1rem; }
-        .contact-box a:hover { color: var(--color-gold); }
-        .map-wrapper { filter: grayscale(100%); opacity: 0.8; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1); }
-        .map-wrapper:hover { filter: grayscale(0%); opacity: 1; }
-        .map-wrapper iframe { width: 100%; height: 450px; display: block; }
+        .footer-legal a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
 
-        /* --- FOOTER --- */
-        footer { background-color: #050f1a; color: rgba(255,255,255,0.4); padding: 40px 0; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
-        .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .footer-links a { color: rgba(255,255,255,0.6); margin-left: 20px; }
-        .footer-links a:hover { color: var(--color-gold); }
+        /* Sekcja z prawami autorskimi */
+        .footer-copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            margin-top: 10px;
+            font-size: 13px;
+        }
 
-        /* --- MODAL --- */
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(10, 31, 53, 0.95); backdrop-filter: blur(5px); }
-        .modal.active { display: flex; align-items: center; justify-content: center; }
-        .modal-content { background: white; padding: 40px; width: 90%; max-width: 600px; max-height: 80vh; overflow-y: auto; border: 1px solid var(--color-gold); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-        .close { float: right; font-size: 2rem; cursor: pointer; }
-
-        /* --- RESPONSIVE --- */
+        /* Optymalizacja dla urządzeń mobilnych - poniżej 768px szerokości */
         @media (max-width: 768px) {
-            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--color-primary); flex-direction: column; padding: 20px; gap: 20px; }
-            .nav-links.active { display: flex; }
-            .menu-toggle { display: block; }
-            .about-container { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.2rem; }
-            .section-header h2 { font-size: 2rem; }
-            .about-image-wrapper::before { display: none; }
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
         }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .cursor { animation: blink 1s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* * Code Quality Improvement: CSS Custom Properties (Variables)
+         * This makes global style changes (like primary color) instant and easier to maintain.
+         */
+        :root {
+    /* CHANGED: Deeper, more authoritative Navy Blue */
+    --color-primary: #0f2a4a;
+    /* CHANGED: A slightly lighter navy for hover states */
+    --color-primary-dark: #1e3f66;
+    /* CHANGED: A gold accent color for subtle highlights */
+    --color-accent: #c4a77d;
+
+    /* CHANGED: Softer black for text (easier to read) */
+    --color-text-dark: #2d3748;
+    --color-text-body: #4a5568;
+
+    --color-bg-light: #ffffff;
+    --color-border: #e2e8f0;
+
+    /* CHANGED: Switch body font to Lato (Google Font) for clean readability */
+    --font-body: 'Lato', sans-serif;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: #183491;
+            background: var(--color-bg-light);
+            overflow-x: hidden;
+            font-size: 18px;
+            transition: overflow 0.3s ease;
+        }
+
+        /* UX Improvement: Class for locking body scroll when modal or menu is open */
+        body.modal-open, body.menu-open {
+            overflow: hidden;
+        }
+
+        .hero-background {
+    background: var(--color-bg-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('biurowce.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3; /* Adjust fog intensity - lower = more fog */
+    z-index: 0;
+}
+
+.hero-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 70%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+       header {
+    background: transparent !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(30px) !important;
+    -webkit-backdrop-filter: blur(30px) !important;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 3rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.phone-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 18px;
+    background: rgba(59, 130, 246, 0.05);
+    border-radius: 25px;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    transition: all 0.3s ease;
+}
+
+.phone-header:hover {
+    background: rgba(59, 130, 246, 0.1);
+    transform: translateY(-1px);
+}
+
+.phone-header i {
+    font-size: 0.9rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--color-text-body);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary-dark);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.logo-placeholder {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.animated-logo {
+    position: fixed;
+    top: 210px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 240px;
+    width: auto;
+    z-index: 1001;
+    transition: all 0.25s cubic-bezier(0.4, 0.0, 0.2, 1);
+    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.1));
+    pointer-events: none;
+}
+
+.animated-logo.moved {
+    position: fixed;
+    top: 35px;
+    left: 2rem;
+    transform: translateY(-50%);
+    height: 48px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    z-index: 1001;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+}
+
+.logo-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--color-text-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.logo-nav-img {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.logo-nav:hover .logo-nav-img {
+    transform: scale(1.05);
+}
+
+.logo-nav-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    position: relative;
+    padding: 0 2rem;
+    padding-top: 200px;
+    background: transparent;
+    z-index: 2;
+}
+
+        .hero-logo {
+            margin-bottom: 5rem;
+            animation: fadeInScale 1.2s ease-out;
+            height: 240px;
+        }
+
+        .hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 3; /* Above everything */
+}
+
+        .hero .subtitle {
+            font-family: 'Black Mango', serif;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--color-text-body);
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.35);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.25);
+        }
+
+        /* Main content */
+        main {
+            background: var(--color-bg-light);
+            position: relative;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--color-text-dark);
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Services layout */
+        .services-container {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            justify-items: center;
+        }
+
+        .services-grid .service-item:last-child:nth-child(3n - 1) {
+            grid-column: span 1;
+        }
+
+        @supports (grid-template-columns: subgrid) {
+            .services-grid .service-item:last-child {
+                grid-column: 2 / 3;
+            }
+        }
+
+        .service-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.4s ease;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .service-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-dark);
+            font-weight: 600;
+        }
+
+        .service-item p {
+            color: var(--color-text-body);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 0.8rem;
+            text-align: center;
+        }
+
+        .service-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .service-details.expanded {
+            max-height: 1000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .service-item ul {
+            text-align: left;
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+            list-style-type: disc;
+        }
+
+        .service-item ul li {
+            color: var(--color-text-body);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .expand-btn {
+    margin-top: 0.8rem;
+    padding: 6px 16px; /* Much tighter padding */
+    background: transparent;
+
+    /* Thin elegant border */
+    border: 1px solid var(--color-border);
+    border-radius: 50px; /* Pill shape */
+
+    color: var(--color-text-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+
+    min-height: auto;
+    min-width: auto;
+    box-shadow: none;
+}
+
+.expand-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.expand-btn i {
+    transition: transform 0.3s ease;
+}
+
+.expand-btn.active i {
+    transform: rotate(180deg);
+}
+
+        /* About section with enhanced image effects */
+        .about {
+            background: var(--color-bg-light);
+            position: relative;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--color-text-body);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .about-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-text h3 {
+            color: var(--color-text-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        .about-image {
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .about-image.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .profile-image-container {
+            position: relative;
+            display: inline-block;
+            animation: gentleFloat 4s ease-in-out infinite;
+        }
+
+        .profile-image-container::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0.1) 40%, transparent 70%);
+            filter: blur(8px);
+            opacity: 0.8;
+            z-index: -1;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .profile-image-container:hover::before {
+            opacity: 1;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            filter: blur(12px);
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0.15) 40%, transparent 70%);
+        }
+
+        .profile-image {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1), 0 0 30px rgba(59, 130, 246, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image-container:hover {
+            animation-play-state: paused;
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .profile-image-container:hover .profile-image {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15), 0 0 50px rgba(59, 130, 246, 0.25);
+            border-color: rgba(255, 255, 255, 1);
+        }
+
+        /* Why Us Section */
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-us-item {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.4s ease;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .why-us-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .why-us-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .why-us-icon {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .why-us-item:hover .why-us-icon {
+            transform: scale(1.1);
+        }
+
+        .why-us-item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-dark);
+            font-weight: 600;
+        }
+
+        .why-us-item p {
+            color: var(--color-text-body);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Contact section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .contact-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1);
+        }
+
+        .contact-item h3 {
+            color: var(--color-text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            color: var(--color-text-body);
+        }
+
+        /* Contact form styling */
+        .contact-form-section {
+            margin-top: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .contact-form-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .form-title {
+            font-size: 2rem;
+            text-align: center;
+            color: var(--color-text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: var(--color-text-body);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: #f8fafc;
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            color: var(--color-text-dark);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: white;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            cursor: pointer;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            color: var(--color-text-body);
+        }
+
+        .rodo-link {
+            color: var(--color-primary);
+            text-decoration: underline;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .rodo-link:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        /* Map section */
+        .map-section {
+            margin-top: 4rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .map-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .map-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .map-info {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-border);
+            margin-top: 1.5rem;
+        }
+
+        .map-info p {
+            margin: 0.5rem 0;
+            color: var(--color-text-body);
+        }
+
+        .map-info strong {
+            color: var(--color-text-dark);
+        }
+
+        .map-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .map-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-text-dark);
+            color: #9ca3af;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* RODO Modal - Refactored to use 'active' class for cleaner state management */
+        .modal {
+            display: none; /* Controlled by JS/Active class for full control */
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        /* Modal visibility and animation */
+        .modal.active {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            transform: translateY(-50px);
+            transition: transform 0.4s ease-out;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--color-text-dark);
+            margin: 0;
+        }
+
+        .close {
+            color: #9ca3af;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+        }
+
+        .close:hover {
+            color: var(--color-primary);
+        }
+
+        .modal-body {
+            line-height: 1.6;
+            color: var(--color-text-body);
+        }
+
+        .modal-body h4 {
+            color: var(--color-text-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-body ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale(1.05);
+            }
+        }
+
+        /* --- Animated Contact Icons --- */
+
+/* 1. Phone Animation (Ringing/Vibrating) */
+@keyframes icon-ring {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(15deg); }
+    20% { transform: rotate(-15deg); }
+    30% { transform: rotate(10deg); }
+    40% { transform: rotate(-10deg); }
+    50% { transform: rotate(5deg); }
+    60% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.contact-item:hover .fa-phone {
+    animation: icon-ring 0.8s ease-in-out;
+    /* Removes the conflict with the existing scale transform on the parent */
+    display: inline-block;
+}
+
+/* 2. Email Animation (Floating/Bobbing) */
+@keyframes icon-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.contact-item:hover .fa-envelope {
+    animation: icon-float 1.5s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* 3. Map Marker Animation (Bouncing Pin) */
+@keyframes icon-bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.contact-item:hover .fa-map-marker-alt {
+    animation: icon-bounce 1s ease;
+    display: inline-block;
+}
+
+/* 4. Clock Animation (Pendulum Swing) */
+@keyframes icon-swing {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-15deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.contact-item:hover .fa-clock {
+    animation: icon-swing 1.2s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* Optional: Enhance the parent container hover slightly */
+.contact-item:hover .contact-icon {
+    /* We override the original scale here to let the specific animations take over,
+       or we can keep it to zoom AND animate.
+       Let's keep the color change but soften the scale so the animation is clearer. */
+    transform: scale(1.05);
+}
+/* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+                overflow-x: hidden;
+            }
+
+            /* Header mobile fixes */
+            nav {
+                padding: 0.75rem 1rem;
+                flex-wrap: nowrap; /* Prevent wrapping in header */
+            }
+
+            .nav-left {
+                gap: 0.75rem;
+            }
+
+            .phone-header {
+                font-size: 0.85rem;
+                padding: 6px 10px;
+                gap: 4px;
+            }
+
+            .phone-header span {
+                font-size: 0.85rem;
+            }
+
+            /* UX Improvement: Show hamburger menu and hide desktop nav */
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                /* Override desktop display: flex */
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 70%;
+                max-width: 300px;
+                height: 100%;
+                background: white;
+                box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+                padding: 4rem 1.5rem 1.5rem;
+                gap: 1.5rem;
+                transform: translateX(100%);
+                transition: transform 0.4s ease-out;
+                align-items: flex-start;
+            }
+
+            .nav-links.open {
+                transform: translateX(0);
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 10px 0;
+                width: 100%;
+                border-bottom: 1px solid var(--color-border);
+                border-radius: 0;
+            }
+
+            /* Logo animations mobile */
+            .animated-logo {
+                height: 140px;
+                top: 140px;
+            }
+
+            .animated-logo.moved {
+                height: 38px;
+                left: 1rem;
+                top: 32px;
+            }
+
+            /* Hero section mobile */
+            .hero {
+                padding: 0 1rem;
+                padding-top: 140px;
+                min-height: 90vh;
+            }
+
+            .hero-logo {
+                margin-bottom: 3rem;
+                height: 140px;
+            }
+
+            .hero .subtitle {
+                font-size: 1.3rem;
+                margin-bottom: 2rem;
+                white-space: normal;
+                line-height: 1.4;
+            }
+
+            /* Buttons mobile */
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .btn {
+                padding: 14px 24px;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Sections mobile */
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 2.5rem;
+            }
+
+            /* Services grid mobile */
+            .services-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .service-item {
+                padding: 2rem 1.5rem;
+            }
+
+            .service-item h3 {
+                font-size: 1.4rem;
+            }
+
+            .service-item p {
+                font-size: 1rem;
+            }
+
+            .service-icon {
+                font-size: 2.5rem;
+            }
+
+            /* About section mobile */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: left;
+            }
+
+            .about-text {
+                font-size: 1rem;
+                order: 2;
+            }
+
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
+
+            .about-image {
+                order: 1;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 240px;
+                height: 240px;
+            }
+
+            /* Contact section mobile */
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-item {
+                padding: 2rem 1.5rem;
+            }
+
+            /* Form mobile */
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-title {
+                font-size: 1.5rem;
+            }
+
+            .form-subtitle {
+                font-size: 1rem;
+            }
+
+            /* Map mobile */
+            .map-container {
+                padding: 1rem;
+            }
+
+            .map-container iframe {
+                height: 300px;
+            }
+
+            /* Why us grid mobile */
+            .why-us-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .why-us-item {
+                padding: 2rem 1.5rem;
+            }
+
+            .why-us-item h3 {
+                font-size: 1.4rem;
+            }
+
+            /* Modal mobile */
+            .modal-content {
+                margin: 10% auto;
+                padding: 1.5rem;
+                width: 95%;
+                max-height: 85vh;
+            }
+
+            .modal-title {
+                font-size: 1.25rem;
+            }
+
+            /* Footer mobile */
+            footer {
+                padding: 1.5rem 1rem;
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+            }
+        }
+
+        /* Small mobile phones */
+        @media (max-width: 480px) {
+            body {
+                font-size: 15px;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .service-item h3,
+            .why-us-item h3 {
+                font-size: 1.25rem;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .btn {
+                font-size: 0.95rem;
+                padding: 12px 20px;
+            }
+
+            .contact-form {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        /* --- Aesthetic CTA Button Animations --- */
+
+/* 1. General Button Base */
+.btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth "ease-out" feel */
+}
+
+/* 2. Primary Button ("Umów konsultację")
+   Effect: Shimmering Living Gradient + Icon Wiggle */
+.btn-primary {
+    /* Create a large gradient that we can move */
+    background: linear-gradient(120deg, var(--color-primary), #1a3682, var(--color-primary), #3b82f6);
+    background-size: 300% 100%;
+    border: none;
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+    /* Constant subtle flow animation */
+    animation: gradient-flow 8s ease infinite;
+}
+
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+}
+
+/* Animate the Calendar Icon inside */
+.btn-primary:hover i {
+    animation: calendar-shake 0.5s ease-in-out forwards;
+}
+
+@keyframes calendar-shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg) scale(1.2); }
+    50% { transform: rotate(-10deg) scale(1.2); }
+    75% { transform: rotate(5deg) scale(1.2); }
+    100% { transform: rotate(0deg) scale(1.1); }
+}
+
+/* 3. Secondary Button ("Poznaj usługi")
+   Effect: "Fill Up" Background + Arrow Drop */
+.btn-secondary {
+    background: transparent;
+    color: var(--color-primary);
+    /* Use a border that matches the text */
+    border: 2px solid var(--color-primary);
+    box-shadow: none;
+}
+
+/* Create the "fill" layer that sits invisible below */
+.btn-secondary::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; /* Starts empty */
+    background-color: var(--color-primary);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: -1; /* Puts it behind the text */
+}
+
+.btn-secondary:hover {
+    color: white; /* Text turns white */
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+}
+
+.btn-secondary:hover::after {
+    height: 100%; /* Fills up from bottom */
+}
+
+/* Animate the Arrow Icon inside */
+.btn-secondary:hover i {
+    transform: translateY(5px); /* Arrow points down/moves down */
+    transition: transform 0.3s ease;
+}
+
+        /* --- "O Mnie" Section Upgrade --- */
+
+/* 1. Typography: The "Lead" Paragraph */
+.about-lead {
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--color-primary-dark); /* Darker blue for emphasis */
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-family: "Unna", serif; /* Using your serif font for elegance */
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1.5rem;
+}
+
+/* 2. The "Values Grid" (Icons inside text) */
+.about-values {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.value-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    font-size: 0.95rem;
+}
+
+.value-item i {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+}
+
+/* 3. The Handwritten Signature */
+.signature-block {
+    margin-top: 2.5rem;
+}
+
+.signature {
+    font-family: 'Great Vibes', cursive; /* The font we added in Step 1 */
+    font-size: 2.5rem;
+    color: var(--color-primary-dark);
+    margin-top: 0.5rem;
+    transform: rotate(-2deg); /* Slight natural tilt */
+}
+
+/* Animation for the card */
+@keyframes float-card {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .floating-card {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: -40px; /* Pull it up over the image */
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+
+    .about-values {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .about-lead {
+        font-size: 1.15rem;
+    }
+}
+
+        /* --- Contact Section Enhancements --- */
+
+/* Make the grid gap slightly larger for breathing room */
+.contact-info {
+    gap: 2rem;
+}
+
+/* Base Card Style Updates */
+.contact-item {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Keep text dark */
+    position: relative;
+    cursor: pointer;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy feel */
+}
+
+/* Hover Effect: Lift and Glow */
+.contact-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+    border-color: var(--color-primary);
+}
+
+/* Typography Upgrades */
+.contact-large {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0.5rem 0;
+}
+
+.contact-medium {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.contact-sub {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    display: block;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* --- TRICK 1: The "Hero" Phone Card --- */
+.highlight-card {
+    background: linear-gradient(145deg, #ffffff, #eef2ff); /* Subtle blue tint */
+    border: 2px solid rgba(59, 130, 246, 0.1);
+}
+
+.highlight-card:hover {
+    border-color: var(--color-primary);
+}
+
+/* Phone Icon Pulse Ring Animation */
+.contact-icon-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.pulse-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    opacity: 0;
+    z-index: -1;
+}
+
+/* Make the ring pulse only on the phone card */
+.highlight-card .pulse-ring {
+    animation: pulse-ring-anim 2s infinite;
+}
+
+@keyframes pulse-ring-anim {
+    0% { width: 100%; height: 100%; opacity: 0.8; }
+    100% { width: 200%; height: 200%; opacity: 0; }
+}
+
+/* --- TRICK 2: The "Green Light" (Availability) --- */
+.status-indicator {
+    display: inline-block;
+    margin-left: 8px;
+    position: relative;
+}
+
+.status-dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #22c55e; /* Green color */
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    animation: status-pulse 2s infinite;
+}
+
+@keyframes status-pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+        /* --- SERVICE ICON ANIMATIONS --- */
+
+/* 1. The Scales of Justice (Tipping left and right) */
+@keyframes balance-tip {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+.service-item:hover .fa-scale-balanced {
+    animation: balance-tip 2.5s ease-in-out infinite;
+    color: var(--color-accent); /* Turns gold on hover */
+}
+
+/* 2. Money/Windykacja (Floating/Waving) */
+@keyframes bill-wave {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-8px) rotate(-5deg); }
+}
+.service-item:hover .fa-money-bill-wave {
+    animation: bill-wave 2s ease-in-out infinite;
+    color: #10b981; /* Subtle money green */
+}
+
+/* 3. Corporate/Building (Firm stability - slight scale up) */
+@keyframes build-rise {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+.service-item:hover .fa-building {
+    animation: build-rise 3s ease-in-out infinite;
+    color: var(--color-primary);
+}
+
+/* 4. Briefcase (Business shake) */
+@keyframes case-shake {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+}
+.service-item:hover .fa-briefcase {
+    animation: case-shake 2s ease-in-out infinite;
+    color: var(--color-accent);
+}
+
+/* 5. Contract (Writing/Pulse) */
+@keyframes doc-pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.service-item:hover .fa-file-contract {
+    animation: doc-pulse 2s infinite;
+}
+
+/* 6. Chart Line (Success/Growth) */
+@keyframes chart-grow {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.1); }
+    100% { transform: translateY(0) scale(1); }
+}
+.service-item:hover .fa-chart-line {
+    animation: chart-grow 1.5s ease-in-out infinite;
+    color: #ef4444; /* Alert/Urgent red tone */
+}
+
+/* 7. Hand Holding USD (Gentle Offering) */
+@keyframes hand-offer {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+.service-item:hover .fa-hand-holding-usd {
+    animation: hand-offer 2s ease-in-out infinite;
+}
+
+/* 8. Shield (Protection Glint) */
+@keyframes shield-protect {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); text-shadow: 0 0 15px var(--color-accent); }
+    100% { transform: scale(1); }
+}
+.service-item:hover .fa-shield-alt {
+    animation: shield-protect 2s infinite;
+    color: var(--color-primary);
+}
+
+/* 9. Car Crash (Impact Shake) */
+@keyframes crash-shake {
+    0%, 100% { transform: translate(0, 0); }
+    10%, 30%, 50%, 70%, 90% { transform: translate(-2px, 1px); }
+    20%, 40%, 60%, 80% { transform: translate(2px, -1px); }
+}
+.service-item:hover .fa-car-crash {
+    animation: crash-shake 0.8s ease-in-out;
+    color: #e63946; /* Warning red */
+}
+
+/* 10. Calculator (Taxes - Buttons pressing) */
+@keyframes calc-tap {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0); }
+    75% { transform: rotate(-10deg); }
+}
+.service-item:hover .fa-calculator {
+    animation: calc-tap 1.5s ease infinite;
+}
     </style>
+    <link rel="canonical" href="https://radcaglogowski.pl/">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<meta name="robots" content="index, follow">
 
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
       "@type": "LegalService",
+      "@id": "https://radcaglogowski.pl/#legalservice",
       "name": "Kancelaria Radcy Prawnego Piotr Głogowski",
-      "image": "https://radcaglogowski.pl/logo.webp",
+      "url": "https://radcaglogowski.pl/",
       "telephone": "+48668125155",
+      "priceRange": "PLN",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "ul. Grzybowska 7/43",
         "addressLocality": "Radom",
         "postalCode": "26-600",
         "addressCountry": "PL"
+      },
+      "openingHours": ["Mo-Fr 08:00-16:00"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://radcaglogowski.pl/#website",
+      "url": "https://radcaglogowski.pl/",
+      "name": "Kancelaria Piotr Głogowski",
+      "publisher": {"@id": "https://radcaglogowski.pl/#legalservice"},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://radcaglogowski.pl/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Jak umówić konsultację z radcą prawnym w Radomiu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zadzwoń +48 668 125 155 lub napisz na kontakt@radcaglogowski.pl — odpowiadamy w 24 h robocze."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy kancelaria obsługuje firmy z całej Polski?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak — kancelaria świadczy usługi prawne zarówno lokalnie w Radomiu, jak i zdalnie dla klientów z całej Polski."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://radcaglogowski.pl/"},
+        {"@type": "ListItem", "position": 2, "name": "Usługi", "item": "https://radcaglogowski.pl/#services"},
+        {"@type": "ListItem", "position": 3, "name": "Kontakt", "item": "https://radcaglogowski.pl/#contact"}
+      ]
     }
-    </script>
+  ]
+}
+</script>
+    <meta property="og:title" content="Kancelaria Radcy Prawnego Piotr Głogowski">
+<meta property="og:description" content="Radca prawny w Radomiu — obsługa prawna spółek, sprawy cywilne, windykacja. Umów konsultację: +48 668 125 155.">
+<meta property="og:image" content="https://radcaglogowski.pl/logo.webp">
+<meta property="og:url" content="https://radcaglogowski.pl/">
+<meta property="og:site_name" content="Kancelaria Piotr Głogowski">
+<meta property="og:type" content="professional">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Radca Prawny Radom — Kancelaria Piotr Głogowski">
+<meta name="twitter:description" content="Radca prawny w Radomiu — obsługa prawna spółek, sprawy cywilne, windykacja.">
+<meta name="twitter:image" content="https://radcaglogowski.pl/logo.webp">
+
 </head>
 <body>
-
-    <header id="mainHeader">
-        <div class="nav-container">
-            <a href="#" class="brand-logo">
-                Piotr Głogowski
-            </a>
-            <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
-            <nav class="nav-links" id="navLinks">
-                <a href="#office">O kancelarii</a>
-                <a href="#services">Usługi</a>
-                <a href="#about">O mnie</a>
-                <a href="#contact" class="cta-nav-btn">Kontakt</a>
+    <div class="hero-background">
+        <header>
+            <nav>
+                <div class="nav-left">
+                    <div class="logo-placeholder"></div>
+                    <div class="phone-header">
+                                <i class="fas fa-phone"></i>
+                        <span>+48 668 125 155</span>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#office">O kancelarii</a></li>
+                    <li><a href="#services">Usługi</a></li>
+                    <li><a href="#about">O mnie</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+                <button class="menu-toggle" id="menuToggle" aria-label="Otwórz menu nawigacyjne">
+                    <i class="fas fa-bars"></i>
+                </button>
             </nav>
+        </header>
+
+        <img src="logo.webp" alt="Logo Kancelarii" class="animated-logo" id="animatedLogo">
+
+        <section id="home" class="hero">
+            <div class="hero-logo" id="heroLogo">
+                <div style="height: 240px;"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-slogan">
+    <span class="slogan-text" id="typingText"></span>
+</div>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-calendar-alt"></i>
+                        Umów konsultację
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <i class="fas fa-arrow-down"></i>
+                        Poznaj usługi
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <main>
+        <section id="office" class="section">
+            <h2 class="section-title">O kancelarii</h2>
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--color-text-body); margin-bottom: 1.5rem;">
+                    Kancelaria specjalizuje się w prawie cywilnym i gospodarczym wspierając osoby fizyczne, a także przedsiębiorców i spółki w rozwoju oraz ochronie ich interesów. Łączymy znajomość prawa z praktycznym zrozumieniem biznesu, proponując skuteczne i bezpieczne rozwiązania.
+                </p>
+                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--color-text-body);">
+                    <strong>Naszą misją jest porządkowanie otoczenia prawnego ludzi i przedsiębiorców, aby mogli skupić się na tym, co najważniejsze — życiu, prowadzeniu i rozwoju swojej działalności.</strong>
+                </p>
+            </div>
+        </section>
+
+<section id="services" class="section">
+            <h2 class="section-title">Zakres działań prawnych</h2>
+            <div class="services-container">
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-scale-balanced service-icon"></i>
+                        <h3>Spory gospodarcze i cywilne</h3>
+                        <p>Reprezentujemy Klientów w sporach sądowych i pozasądowych - zarówno przedsiębiorców, jak i osoby prywatne.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>reprezentacja przed sądami wszystkich instancji</li>
+                                <li>sporządzanie pozwów, wniosków i pism procesowych w toku postępowania</li>
+                                <li>negocjacje ugodowe</li>
+                                <li>doradztwo w zakresie polubownych sposobów rozwiązywania sporów</li>
+                                <li>sprawy rodzinne (alimenty, władza rodzicielska, kontakty z dziećmi)</li>
+                                <li>rozwody</li>
+                                <li>podziały majątku</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <i class="fas fa-money-bill-wave service-icon"></i>
+                        <h3>Windykacja należności</h3>
+                        <p>Pomagamy w skutecznym odzyskiwaniu długów - szybko, profesjonalnie i z zachowaniem dobrych relacji biznesowych.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>wezwania do zapłaty i negocjacje</li>
+                                <li>dochodzenie należności w sądzie</li>
+                                <li>egzekucja komornicza i nadzór nad postępowaniem</li>
+                                <li>windykacja należności z zagranicy</li>
+                                <li>monitoring płatności i prewencja zadłużenia</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <i class="fas fa-building service-icon"></i>
+                        <h3>Prawo korporacyjne i obsługa spółek/fundacji/stowarzyszeń</h3>
+                        <p>Doradzamy w zakładaniu, prowadzeniu i organizowaniu spółek. Pomagamy w budowaniu bezpiecznych struktur prawnych.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>zakładanie i rejestracja spółek, fundacji oraz stowarzyszeń</li>
+                                <li>przygotowanie statutów i umów organizacyjnych dla spółek, fundacji oraz stowarzyszeń</li>
+                                <li>zmiany w strukturze spółek, przekształcenia i fuzje</li>
+                                <li>obsługa zgromadzeń wspólników</li>
+                                <li>doradztwo dla zarządów i wspólników</li>
+                                <li>likwidacja</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <i class="fas fa-briefcase service-icon"></i>
+                        <h3>Bieżąca obsługa przedsiębiorców</h3>
+                        <p>Stała obsługa prawna to bezpieczeństwo i rozwój Twojej firmy. Kancelaria oferuje elastyczne formy współpracy.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>przygotowanie i analiza umów handlowych</li>
+                                <li>doradztwo w prawie pracy i cywilnym</li>
+                                <li>reprezentacja w kontaktach z urzędami</li>
+                                <li>wsparcie w przetargach i negocjacjach</li>
+                                <li>konsultacje prawne i analiza ryzyka</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <i class="fas fa-file-contract service-icon"></i>
+                        <h3>Umowy i transakcje</h3>
+                        <p>Pomagamy konstruować bezpieczne umowy i przeprowadzać transakcje tak, by chronić interes Klienta.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>sporządzanie i negocjacja umów</li>
+                                <li>analiza istniejących kontraktów</li>
+                                <li>umowy handlowe, inwestycyjne, najmu i współpracy</li>
+                                <li>doradztwo przy zakupie i sprzedaży nieruchomości</li>
+                                <li>klauzule zabezpieczające</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <i class="fas fa-chart-line service-icon"></i>
+                        <h3>Upadłość i restrukturyzacja przedsiębiorstw</h3>
+                        <p>Wspieramy przedsiębiorców w sytuacjach kryzysowych. Pomagamy zachować płynność lub przeprowadzić bezpieczną restrukturyzację.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>analiza kondycji finansowej firmy</li>
+                                <li>przygotowanie wniosku o upadłość lub restrukturyzację</li>
+                                <li>reprezentacja przed sądem i wierzycielami</li>
+                                <li>opracowanie planu naprawczego</li>
+                                <li>doradztwo dla zarządów spółek w zakresie odpowiedzialności majątkowej</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <i class="fas fa-hand-holding-usd service-icon"></i>
+                        <h3>Upadłość konsumencka</h3>
+                        <p>Pomagamy osobom zadłużonym w uzyskaniu oddłużenia i rozpoczęciu nowego etapu życia bez długów.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>analiza sytuacji finansowej i kwalifikacja do upadłości</li>
+                                <li>przygotowanie wniosku i reprezentacja w sądzie</li>
+                                <li>kontakt z syndykiem</li>
+                                <li>doradztwo przy planie spłaty</li>
+                                <li>wsparcie w negocjacjach z wierzycielami</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <i class="fas fa-shield-alt service-icon"></i>
+                        <h3>Ochrona majątku i sukcesja</h3>
+                        <p>Doradzamy, jak skutecznie chronić majątek prywatny i firmowy oraz zaplanować jego przekazanie kolejnym pokoleniom.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>planowanie sukcesji w firmach rodzinnych</li>
+                                <li>fundacje rodzinne</li>
+                                <li>zabezpieczenie majątku przed roszczeniami</li>
+                                <li>doradztwo podatkowe i spadkowe</li>
+                                <li>budowanie struktur majątkowych</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <i class="fas fa-car-crash service-icon"></i>
+                        <h3>Odszkodowania</h3>
+                        <p>Pomagamy uzyskać pełne odszkodowanie za szkody osobowe i majątkowe. Reprezentujemy Klientów w negocjacjach i przed sądem.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>wypadki komunikacyjne i błędy medyczne</li>
+                                <li>wypadki przy pracy</li>
+                                <li>szkody majątkowe i zadośćuczynienia</li>
+                                <li>odwołania od decyzji ubezpieczycieli</li>
+                                <li>reprezentacja w sądzie</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <i class="fas fa-calculator service-icon"></i>
+                        <h3>Podatki</h3>
+                        <p>Doradzamy w zakresie podatków, pomagając firmom i osobom prywatnym unikać błędów i planować korzystne rozwiązania.</p>
+                        <button class="expand-btn" onclick="toggleDetails(this)">
+                            Rozwiń <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="service-details">
+                            <p><strong>Zakres usług:</strong></p>
+                            <ul>
+                                <li>analiza skutków podatkowych transakcji</li>
+                                <li>planowanie i optymalizacja podatkowa</li>
+                                <li>reprezentacja przed urzędami skarbowymi</li>
+                                <li>odwołania od decyzji podatkowych</li>
+                                <li>doradztwo przy podatkach VAT, PIT, CIT, PCC i spadkowych</li>
+                                <li>prowadzenie postępowań z zakresu kontroli podatkowych</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about section">
+    <h2 class="section-title">O mnie</h2>
+    <div class="about-content">
+
+        <div class="about-text">
+            <div style="border-left: 4px solid var(--color-accent); padding-left: 20px; margin: 30px 0; font-style: italic; color: var(--color-text-dark);">
+    "Moja zawodowa misja to nie tylko cytowanie przepisów. To porządkowanie otoczenia prawnego moich Klientów tak, aby mogli bezpiecznie rozwijać swój biznes i życie prywatne."
+</div>
+
+            <p>Jestem radcą prawnym, specjalizującym się w szeroko rozumianym prawie gospodarczym. Realizowałem zadania związane z obsługą prawną przedsiębiorców, udziałem w postępowaniach restrukturyzacyjnych, upadłościowych i sądowych oraz analizą i przygotowaniem dokumentacji związanej z prowadzonymi sprawami.</p>
+
+            <p>Mam doświadczenie w obsłudze prawnej spółek kapitałowych, obejmujące emisje nowych udziałów, przekształcenia, przejęcia przedsiębiorstw, pozyskiwanie finansowania na rozwój podmiotów gospodarczych - w oparciu o finansowanie zewnętrzne dłużne oraz udziałowe, negocjowanie umów biznesowych i wsparcie przedsiębiorców na każdym etapie sprzedaży udziałów oraz reorganizacji spółki.</p>
+
+            <p>Jeśli jesteś przedsiębiorcą, angażujesz się w swoją działalność operacyjną, rozwój produktu i firmy - ja zapewniam wsparcie prawne. Dbam o to, aby nie zaskoczyły Cię potencjalne kłopoty - a jeśli przyjdą - aby ich konsekwencje nie były zbyt dolegliwe. Jak to robię? Doradzam w bieżących sprawach, sporządzam dokumenty i procedury, dbam, byś wiedział, jakie ryzyka prawne generuje Twój biznes i jak tymi ryzykami zarządzać. Buduję też grupy kapitałowe, wspieram prawnie procesy ochrony majątku i planowania sukcesyjnego. W swojej praktyce mam również kontakt ze sprawami podatkowymi oraz karnymi skarbowymi.</p>
+
+            <p>Szeroka wiedza i doświadczenie pozwalają mi proponować skuteczne, często nieszablonowe rozwiązania problemów prawnych, uwzględniające nie tylko aspekty prawne sytuacji, ale również kwestie podatkowe.</p>
+
+            <p>W życiu poza pracą cenię sobie aktywność fizyczną. Sportowe pasje pomagają mi być lepszym prawnikiem - w prawie, jak i w sporcie liczą się wytrwałość, dyscyplina i determinacja. Liczą się zasady, których należy przestrzegać.</p>
+
+            <p class="cta-text">Szukasz prawnika, który wesprze Twój biznes? Napisz do mnie. Pomyślimy, co możemy zrobić w Twojej sprawie.</p>
         </div>
-    </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <img src="logo.webp" alt="Logo Kancelarii" class="hero-logo-large">
-
-            <h1 id="typingText"></h1>
-            <p class="hero-subtitle">Profesjonalna pomoc prawna dla Biznesu i Klientów Indywidualnych</p>
-
-            <a href="#contact" class="btn-main">Umów Konsultację</a>
-        </div>
-    </section>
-
-    <section id="office" class="section-padding intro-section">
-        <div class="container">
-            <div class="section-header">
-                <span>Nasza Misja</span>
-                <h2>Kancelaria Prawna</h2>
-            </div>
-            <div class="intro-text">
-                <p>Specjalizujemy się w prawie cywilnym i gospodarczym, wspierając przedsiębiorców i osoby fizyczne. Łączymy znajomość prawa z praktycznym zrozumieniem biznesu.
-                <br><br>
-                <strong>Naszym celem jest porządkowanie otoczenia prawnego, abyś mógł skupić się na tym, co najważniejsze — rozwoju swojej działalności.</strong></p>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="section-padding services-section">
-        <div class="container">
-            <div class="section-header">
-                <span>Obszary Praktyki</span>
-                <h2>Zakres Działań</h2>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-item service-card">
-                    <i class="fas fa-scale-balanced service-icon"></i>
-                    <h3>Spory gospodarcze i cywilne</h3>
-                    <p>Reprezentujemy Klientów w sporach sądowych i pozasądowych.</p>
-                    <button class="expand-btn" onclick="toggleDetails(this)">
-                        Rozwiń <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="service-details">
-                        <p><strong>Zakres usług:</strong></p>
-                        <ul>
-                            <li>reprezentacja przed sądami wszystkich instancji</li>
-                            <li>sporządzanie pozwów, wniosków i pism</li>
-                            <li>negocjacje ugodowe</li>
-                            <li>doradztwo w polubownym rozwiązywaniu sporów</li>
-                            <li>sprawy rodzinne i rozwody</li>
-                            <li>podziały majątku</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-item service-card">
-                    <i class="fas fa-money-bill-wave service-icon"></i>
-                    <h3>Windykacja należności</h3>
-                    <p>Pomagamy w skutecznym odzyskiwaniu długów.</p>
-                    <button class="expand-btn" onclick="toggleDetails(this)">
-                        Rozwiń <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="service-details">
-                        <p><strong>Zakres usług:</strong></p>
-                        <ul>
-                            <li>wezwania do zapłaty i negocjacje</li>
-                            <li>dochodzenie należności w sądzie</li>
-                            <li>egzekucja komornicza</li>
-                            <li>windykacja zagraniczna</li>
-                            <li>monitoring płatności</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-item service-card">
-                    <i class="fas fa-building service-icon"></i>
-                    <h3>Prawo korporacyjne</h3>
-                    <p>Doradzamy w zakładaniu i prowadzeniu spółek oraz fundacji.</p>
-                    <button class="expand-btn" onclick="toggleDetails(this)">
-                        Rozwiń <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="service-details">
-                        <p><strong>Zakres usług:</strong></p>
-                        <ul>
-                            <li>zakładanie i rejestracja spółek/fundacji</li>
-                            <li>przygotowanie statutów i umów</li>
-                            <li>przekształcenia i fuzje</li>
-                            <li>obsługa zgromadzeń wspólników</li>
-                            <li>likwidacje</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-item service-card">
-                    <i class="fas fa-briefcase service-icon"></i>
-                    <h3>Obsługa przedsiębiorców</h3>
-                    <p>Stała obsługa prawna to bezpieczeństwo i rozwój Twojej firmy.</p>
-                    <button class="expand-btn" onclick="toggleDetails(this)">
-                        Rozwiń <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="service-details">
-                        <p><strong>Zakres usług:</strong></p>
-                        <ul>
-                            <li>przygotowanie i analiza umów handlowych</li>
-                            <li>doradztwo w prawie pracy</li>
-                            <li>reprezentacja w urzędach</li>
-                            <li>wsparcie w przetargach</li>
-                            <li>analiza ryzyka</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-item service-card">
-                    <i class="fas fa-file-contract service-icon"></i>
-                    <h3>Umowy i transakcje</h3>
-                    <p>Pomagamy konstruować bezpieczne umowy i przeprowadzać transakcje.</p>
-                    <button class="expand-btn" onclick="toggleDetails(this)">
-                        Rozwiń <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="service-details">
-                        <p><strong>Zakres usług:</strong></p>
-                        <ul>
-                            <li>sporządzanie i negocjacja umów</li>
-                            <li>umowy inwestycyjne i najmu</li>
-                            <li>zakup i sprzedaż nieruchomości</li>
-                            <li>klauzule zabezpieczające</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-item service-card">
-                    <i class="fas fa-chart-line service-icon"></i>
-                    <h3>Upadłość i restrukturyzacja</h3>
-                    <p>Wspieramy przedsiębiorców w sytuacjach kryzysowych.</p>
-                    <button class="expand-btn" onclick="toggleDetails(this)">
-                        Rozwiń <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="service-details">
-                        <p><strong>Zakres usług:</strong></p>
-                        <ul>
-                            <li>analiza kondycji finansowej</li>
-                            <li>wnioski o upadłość/restrukturyzację</li>
-                            <li>reprezentacja przed wierzycielami</li>
-                            <li>opracowanie planu naprawczego</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-item service-card">
-                    <i class="fas fa-hand-holding-usd service-icon"></i>
-                    <h3>Upadłość konsumencka</h3>
-                    <p>Pomagamy osobom zadłużonym w uzyskaniu oddłużenia.</p>
-                    <button class="expand-btn" onclick="toggleDetails(this)">
-                        Rozwiń <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="service-details">
-                        <p><strong>Zakres usług:</strong></p>
-                        <ul>
-                            <li>analiza sytuacji finansowej</li>
-                            <li>przygotowanie wniosku do sądu</li>
-                            <li>kontakt z syndykiem</li>
-                            <li>doradztwo przy planie spłaty</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-item service-card">
-                    <i class="fas fa-shield-alt service-icon"></i>
-                    <h3>Ochrona majątku</h3>
-                    <p>Doradzamy, jak skutecznie chronić majątek i planować sukcesję.</p>
-                    <button class="expand-btn" onclick="toggleDetails(this)">
-                        Rozwiń <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="service-details">
-                        <p><strong>Zakres usług:</strong></p>
-                        <ul>
-                            <li>planowanie sukcesji w firmach</li>
-                            <li>fundacje rodzinne</li>
-                            <li>zabezpieczenie przed roszczeniami</li>
-                            <li>doradztwo spadkowe</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-item service-card">
-                    <i class="fas fa-car-crash service-icon"></i>
-                    <h3>Odszkodowania</h3>
-                    <p>Pomagamy uzyskać pełne odszkodowanie za szkody osobowe i majątkowe.</p>
-                    <button class="expand-btn" onclick="toggleDetails(this)">
-                        Rozwiń <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="service-details">
-                        <p><strong>Zakres usług:</strong></p>
-                        <ul>
-                            <li>wypadki komunikacyjne i błędy medyczne</li>
-                            <li>wypadki przy pracy</li>
-                            <li>odwołania od decyzji ubezpieczycieli</li>
-                            <li>reprezentacja w sądzie</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-item service-card">
-                    <i class="fas fa-calculator service-icon"></i>
-                    <h3>Podatki</h3>
-                    <p>Doradzamy w zakresie podatków i planowania korzystnych rozwiązań.</p>
-                    <button class="expand-btn" onclick="toggleDetails(this)">
-                        Rozwiń <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="service-details">
-                        <p><strong>Zakres usług:</strong></p>
-                        <ul>
-                            <li>analiza skutków podatkowych</li>
-                            <li>optymalizacja podatkowa</li>
-                            <li>reprezentacja przed urzędami skarbowymi</li>
-                            <li>spory podatkowe (VAT, PIT, CIT, PCC)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="section-padding about-section">
-        <div class="container">
-            <div class="about-container">
-                <div class="about-image-wrapper">
-                    <img src="piotr.webp" alt="Mecenas Piotr Głogowski">
-                </div>
-                <div class="about-content">
-                    <div class="section-header" style="text-align: left; margin-bottom: 30px;">
-                        <span>Radca Prawny</span>
-                        <h2>Piotr Głogowski</h2>
-                    </div>
-
-                    <blockquote>
-                        "W życiu poza pracą cenię sobie aktywność fizyczną. Sportowe pasje pomagają mi być lepszym prawnikiem - w prawie, jak i w sporcie liczą się wytrwałość, dyscyplina i determinacja. "
-                    </blockquote>
-
-                    <p>Jestem radcą prawnym, specjalizującym się w szeroko rozumianym prawie gospodarczym. Realizowałem zadania związane z obsługą prawną przedsiębiorców, udziałem w postępowaniach restrukturyzacyjnych, upadłościowych i sądowych.</p>
-
-                    <p>Dbam o to, aby nie zaskoczyły Cię potencjalne kłopoty - a jeśli przyjdą - aby ich konsekwencje nie były zbyt dolegliwe. Doradzam w bieżących sprawach, sporządzam dokumenty i procedury, dbam, byś wiedział, jakie ryzyka prawne generuje Twój biznes.</p>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section-padding contact-section">
-        <div class="container">
-            <div class="section-header">
-                <span>Skontaktuj się z nami</span>
-                <h2>Dane Kontaktowe</h2>
-            </div>
-
-            <div class="contact-grid">
-                <div class="contact-box">
-                    <i class="fas fa-phone"></i>
-                    <h4>Telefon</h4>
-                    <a href="tel:+48668125155">+48 668 125 155</a>
-                </div>
-
-                <div class="contact-box">
-                    <i class="fas fa-envelope"></i>
-                    <h4>Email</h4>
-                    <a href="mailto:kontakt@radcaglogowski.pl">kontakt@radcaglogowski.pl</a>
-                </div>
-
-                <div class="contact-box">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h4>Adres</h4>
-                    <p>ul. Grzybowska 7/43<br>26-600 Radom</p>
-                </div>
-            </div>
-
-            <div class="map-wrapper">
-                <iframe
-                    src="https://maps.google.com/maps?q=ul.+Grzybowska+7,+26-600+Radom&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+        <div class="about-image">
+            <div class="profile-image-container">
+                <img src="piotr.webp" alt="Radca Prawny Piotr Głogowski" class="profile-image">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="copyright">
-                    © 2025 Kancelaria Radcy Prawnego Piotr Głogowski.
-                </div>
-                <div class="footer-links">
-                    <a href="#" id="footerRodoLink">Polityka Prywatności (RODO)</a>
-                </div>
-            </div>
+
+
+        <section id="contact" class="section">
+            <h2 class="section-title">Kontakt</h2>
+            <div class="contact-info">
+    <a href="tel:+48668125155" class="contact-item highlight-card">
+        <div class="contact-icon-wrapper">
+            <i class="fas fa-phone"></i>
+            <div class="pulse-ring"></div>
         </div>
-    </footer>
+        <h3>Zadzwoń do nas</h3>
+        <p class="contact-large">+48 668 125 155</p>
+        <span class="contact-sub">Kliknij, aby połączyć</span>
+    </a>
+
+    <a href="mailto:kontakt@radcaglogowski.pl" class="contact-item">
+        <div class="contact-icon-wrapper">
+            <i class="fas fa-envelope"></i>
+        </div>
+        <h3>Napisz wiadomość</h3>
+        <p class="contact-medium">kontakt@radcaglogowski.pl</p>
+        <span class="contact-sub">Odpowiadamy w 24h</span>
+    </a>
+
+    <div class="contact-item">
+        <div class="contact-icon-wrapper">
+            <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <h3>Adres biura</h3>
+        <p>ul. Grzybowska 7/43<br>26-600 Radom</p>
+    </div>
+
+    <div class="contact-item">
+        <div class="contact-icon-wrapper">
+            <i class="fas fa-clock"></i>
+        </div>
+        <h3>
+            Godziny pracy
+            <span class="status-indicator">
+                <span class="status-dot"></span>
+            </span>
+        </h3>
+        <p>Poniedziałek - Piątek: 8:00 - 16:00<br>Sobota - Niedziela: Zamknięte</p>
+    </div>
+</div>
+
+            <div class="map-section">
+    <h3 class="form-title">Lokalizacja biura</h3>
+    <div class="map-container">
+        <iframe
+            src="https://maps.google.com/maps?q=ul.+Grzybowska+7,+26-600+Radom&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="400"
+            style="border:0; border-radius: 15px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa z lokalizacją Kancelarii - ul. Grzybowska 7">
+        </iframe>
+
+        <div class="map-info">
+            <p><strong>📍 Adres biura:</strong></p>
+            <p>ul. Grzybowska 7/43<br>26-600 Radom</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=ul.+Grzybowska+7,+26-600+Radom" target="_blank" class="map-link">
+                <i class="fas fa-location-arrow"></i> Jak dojechać?
+            </a>
+        </div>
+    </div>
+</div>
+        </section>
+    </main>S
 
     <div id="rodoModal" class="modal">
         <div class="modal-content">
-            <span class="close" id="closeModal">×</span>
-            <h3>Informacja o przetwarzaniu danych osobowych (RODO)</h3>
-            <br>
-            <p><strong>Administrator danych:</strong> Piotr Głogowski, Radca Prawny, ul. Grzybowska 7/43, 26-615 Radom.</p>
-            <br>
-            <p><strong>Cel:</strong> Udzielenie odpowiedzi na zapytanie prawne, kontakt w sprawie usług.</p>
-            <p><strong>Prawa:</strong> Przysługuje Państwu prawo dostępu do danych, sprostowania, usunięcia oraz wniesienia skargi do Prezesa UODO.</p>
-            <br>
-            <p>Podanie danych jest dobrowolne, lecz niezbędne do kontaktu.</p>
+            <div class="modal-header">
+                <h2 class="modal-title">Informacja o przetwarzaniu danych osobowych (RODO)</h2>
+                <button class="close" id="closeModal">×</button>
+            </div>
+            <div class="modal-body">
+                <h4>Administrator danych:</h4>
+                <p>Piotr Głogowski, Radca Prawny<br>
+                ul. Grzybowska 7/43, 26-615 Radom<br>
+                E-mail: kontakt@radcaglogowski.pl</p>
+
+                <h4>Cel przetwarzania danych:</h4>
+                <ul>
+                    <li>Udzielenie odpowiedzi na zapytanie prawne</li>
+                    <li>Kontakt w sprawie świadczenia usług prawnych</li>
+                    <li>Prowadzenie korespondencji</li>
+                </ul>
+
+                <h4>Podstawa prawna:</h4>
+                <p>Art. 6 ust. 1 lit. a) RODO - zgoda osoby, której dane dotyczą</p>
+
+                <h4>Zakres przetwarzanych danych:</h4>
+                <ul>
+                    <li>Imię i nazwisko</li>
+                    <li>Adres e-mail</li>
+                    <li>Numer telefonu</li>
+                    <li>Treść zapytania</li>
+                </ul>
+
+                <h4>Okres przechowywania danych:</h4>
+                <p>Dane będą przechowywane przez okres niezbędny do udzielenia odpowiedzi oraz przez okres przedawnienia roszczeń wynikających z przepisów prawa.</p>
+
+                <h4>Prawa osoby, której dane dotyczą:</h4>
+                <ul>
+                    <li>Prawo dostępu do danych</li>
+                    <li>Prawo sprostowania danych</li>
+                    <li>Prawo usunięcia danych</li>
+                    <li>Prawo ograniczenia przetwarzania</li>
+                    <li>Prawo przenoszenia danych</li>
+                    <li>Prawo wniesienia sprzeciwu</li>
+                    <li>Prawo cofnięcia zgody w dowolnym momencie</li>
+                </ul>
+
+                <h4>Prawo wniesienia skargi:</h4>
+                <p>Przysługuje Państwu prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych.</p>
+
+                <p><strong>Podanie danych osobowych jest dobrowolne, lecz niezbędne do udzielenia odpowiedzi na zapytanie.</strong></p>
+            </div>
         </div>
     </div>
 
     <script>
-        // 1. Sticky Header
+
+        // --- Start Mobile Menu Logic (UX Improvement) ---
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const navLinkItems = document.querySelectorAll('.nav-link-item');
+        const body = document.body;
+
+        function toggleMenu() {
+            navLinks.classList.toggle('open');
+            // Toggle between hamburger and close icon
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+            body.classList.toggle('menu-open');
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked (for smooth scroll)
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('open')) {
+                    toggleMenu();
+                }
+            });
+        });
+        // --- End Mobile Menu Logic ---
+
+        // --- Start RODO Modal Logic (Code Quality/State Management Improvement) ---
+        const rodoModal = document.getElementById('rodoModal');
+        const closeModal = document.getElementById('closeModal');
+        const footerRodoLink = document.getElementById('footerRodoLink');
+
+        function openRodoModal() {
+            rodoModal.classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeRodoModal() {
+            rodoModal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+
+        // 1. Close button
+        closeModal.addEventListener('click', closeRodoModal);
+
+        // 2. Click outside modal content
+        window.addEventListener('click', function(e) {
+            if (e.target === rodoModal) {
+                closeRodoModal();
+            }
+        });
+
+        // 3. Footer link handler
+        if (footerRodoLink) {
+            footerRodoLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                openRodoModal();
+            });
+        }
+
+        // Make the openRodoModal function globally accessible for the inline onclick in the form
+        window.openRodoModal = openRodoModal;
+        // --- End RODO Modal Logic ---
+
+
+        // Logo animation on scroll
+        let lastScrollTop = 0;
+        let logoMoved = false;
+        let ticking = false;
+
+        function handleLogoAnimation() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const animatedLogo = document.getElementById('animatedLogo');
+            const heroLogo = document.getElementById('heroLogo');
+
+            // Move logo to header when scrolling down past 80px (before it covers the text)
+            if (scrollTop > 80 && !logoMoved) {
+                animatedLogo.classList.add('moved');
+                if (heroLogo) {
+                    heroLogo.style.opacity = '0';
+                }
+                logoMoved = true;
+            }
+            // Move logo back to center when scrolling back to top
+            else if (scrollTop <= 80 && logoMoved) {
+                animatedLogo.classList.remove('moved');
+                if (heroLogo) {
+                    heroLogo.style.opacity = '1';
+                }
+                logoMoved = false;
+            }
+
+            lastScrollTop = scrollTop;
+            ticking = false;
+        }
+
         window.addEventListener('scroll', function() {
-            const header = document.getElementById('mainHeader');
-            if (window.scrollY > 50) {
+            if (!ticking) {
+                window.requestAnimationFrame(handleLogoAnimation);
+                ticking = true;
+            }
+        });
+
+        // Toggle service details
+        function toggleDetails(button) {
+            const serviceItem = button.closest('.service-item');
+            const details = serviceItem.querySelector('.service-details');
+
+            if (details.classList.contains('expanded')) {
+                details.classList.remove('expanded');
+                button.classList.remove('active');
+                button.innerHTML = 'Rozwiń <i class="fas fa-chevron-down"></i>';
+            } else {
+                details.classList.add('expanded');
+                button.classList.add('active');
+                button.innerHTML = 'Zwiń <i class="fas fa-chevron-down"></i>';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
         });
 
-        // 2. Mobile Menu
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
+        // Enhanced Intersection Observer for smooth fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // 3. Service Expand Logic
-        function toggleDetails(btn) {
-            const details = btn.nextElementSibling;
-            if (details.classList.contains('expanded')) {
-                details.classList.remove('expanded');
-                btn.innerHTML = 'Rozwiń <i class="fas fa-chevron-down"></i>';
-            } else {
-                details.classList.add('expanded');
-                btn.innerHTML = 'Zwiń <i class="fas fa-chevron-up"></i>';
-            }
-        }
-
-        // 4. Modal Logic
-        const modal = document.getElementById('rodoModal');
-        const rodoBtn = document.getElementById('footerRodoLink');
-        const closeBtn = document.getElementById('closeModal');
-
-        rodoBtn.onclick = function(e) { e.preventDefault(); modal.classList.add('active'); }
-        closeBtn.onclick = function() { modal.classList.remove('active'); }
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.classList.remove('active');
-            }
-        }
-
-        // 5. Typing Effect
-        const textElement = document.getElementById('typingText');
-        const phrases = ["Kancelaria Radcy Prawnego", "Rozwiązania dla Biznesu", "Skuteczna Ochrona Prawna"];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-
-            if (isDeleting) {
-                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 50 : 100;
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                typeSpeed = 2500;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-
-        document.addEventListener('DOMContentLoaded', type);
-
-        // 6. Intersection Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
+                    if (entry.target.classList.contains('service-item')) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 150);
+                    } else if (entry.target.classList.contains('contact-item')) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 100);
+                    } else if (entry.target.classList.contains('why-us-item')) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 100);
+                    } else {
+                        entry.target.classList.add('visible');
+                    }
                 }
             });
-        });
+        }, observerOptions);
 
-        document.querySelectorAll('.service-card, .about-content, .contact-box').forEach(el => {
-            el.style.opacity = 0;
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.8s ease-out';
+        // Observe all animated elements
+        document.querySelectorAll('.service-item, .about-text, .about-image, .contact-item, .map-section').forEach(el => {
             observer.observe(el);
         });
 
+
+        // Add smooth hover animation for profile image
+        const profileImageContainer = document.querySelector('.profile-image-container');
+        if (profileImageContainer) {
+            profileImageContainer.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+                this.style.animationPlayState = 'paused';
+            });
+
+            profileImageContainer.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.animationPlayState = 'running';
+            });
+        }
     </script>
+
+    <script>
+    // Typing animation for slogan
+    const phrases = [
+        "Rozumiemy biznes.",
+        "Chronimy interesy.",
+        "Wspieramy ludzi."
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const pauseTime = 2000;
+
+    function typeWriter() {
+    const typingText = document.getElementById('typingText');
+    const currentPhrase = phrases[phraseIndex];
+
+    if (!isDeleting && charIndex < currentPhrase.length) {
+        typingText.innerHTML = currentPhrase.substring(0, charIndex + 1) + '<span class="cursor">|</span>';
+        charIndex++;
+        setTimeout(typeWriter, typingSpeed);
+    } else if (isDeleting && charIndex > 0) {
+        typingText.innerHTML = currentPhrase.substring(0, charIndex - 1) + '<span class="cursor">|</span>';
+        charIndex--;
+        setTimeout(typeWriter, deletingSpeed);
+    } else if (!isDeleting && charIndex === currentPhrase.length) {
+        typingText.innerHTML = currentPhrase + '<span class="cursor">|</span>';
+        setTimeout(() => {
+            isDeleting = true;
+            typeWriter();
+        }, pauseTime);
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(typeWriter, 500);
+    }
+}
+
+    // Start typing animation when page loads
+    window.addEventListener('load', () => {
+        setTimeout(typeWriter, 500);
+    });
+</script>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-contact">
+            <h3>Kontakt</h3>
+            <p><strong>Kancelaria Radcy Prawnego Piotr Głogowski</strong></p>
+            <p>ul. Grzybowska 7 lok. 43</p>
+            <p>26-615 Radom</p>
+            <p>Telefon: +48 668 125 155</p>
+            <p>Email: kontakt@radcaglogowski.pl</p>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <p>&copy; 2025 Piotr Głogowski - Kancelaria Radcy Prawnego. Wszelkie prawa zastrzeżone.</p>
+    </div>
+
+
+</footer>
 </body>
 </html>
